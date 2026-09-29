@@ -989,5 +989,28 @@ class PlaybackContinuityTests(unittest.TestCase):
 
 
 
+    def test_decoder_failure_classifies_zero_frame_and_timeout(self):
+        self.assertEqual(
+            build._classify_decoder_attempts([
+                {"decoded_frames": 0, "ffmpeg_error": ""},
+                {"decoded_frames": 0, "ffmpeg_error": ""},
+            ]),
+            "zero-frame",
+        )
+        self.assertEqual(
+            build._classify_decoder_attempts([
+                {"decoded_frames": 0, "failure": "timeout"},
+                {"decoded_frames": 0, "failure": "timeout"},
+            ]),
+            "timeout",
+        )
+        self.assertEqual(
+            build._classify_decoder_attempts([
+                {"decoded_frames": 0, "ffmpeg_error": "Invalid data found when processing input"},
+            ]),
+            "codec-or-demux",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1720,6 +1720,24 @@ def _sanitize_ffmpeg_error(stderr: str, stream_url: str, limit: int = 600) -> st
     return compact[-max(1, int(limit)):]
 
 
+def _classify_decoder_attempts(attempts: list[dict[str, Any]]) -> str:
+    """Return a compact reason for a failed decoder validation."""
+    if not attempts:
+        return "decoder-error"
+    if any(attempt.get("repeat") is not None for attempt in attempts):
+        return "repeated-clip"
+    if all(str(attempt.get("failure") or "") == "timeout" for attempt in attempts):
+        return "timeout"
+    if all(int(attempt.get("decoded_frames", 0) or 0) == 0 for attempt in attempts):
+        errors = " ".join(str(attempt.get("ffmpeg_error") or "").lower() for attempt in attempts)
+        if any(token in errors for token in ("invalid data", "invalid argument", "could not find codec", "error when loading first segment")):
+            return "codec-or-demux"
+        if any(token in errors for token in ("404", "403", "http error", "failed to open segment", "server returned")):
+            return "segment-or-http"
+        return "zero-frame"
+    return "insufficient-decode"
+
+
 def _validate_direct_media_survival(stream: dict[str, Any], settings: dict[str, Any]) -> dict[str, Any]:
     """Require repeated successful decoded connections for direct media."""
     if not bool(settings.get("enabled", False)):
@@ -1915,6 +1933,7 @@ def _validate_direct_media_survival(stream: dict[str, Any], settings: dict[str, 
             f"requires {required_passes} (best decode {best_seconds:.1f}s)"
         ),
         "continuity_failure": "direct-media-insufficient-survival",
+        "decoder_failure_class": _classify_decoder_attempts(attempts),
         "direct_media_survival": survival,
     }
 
@@ -1966,6 +1985,7 @@ def _validate_primary_playback_stream(
         "detail": result.get("detail") or "Primary playback decode failed",
         "continuity_failure": mapped_failure,
         "primary_playback_qa": survival,
+        "decoder_failure_class": result.get("decoder_failure_class") or _classify_decoder_attempts(survival.get("attempts") or []),
     }
 
 
@@ -2015,6 +2035,7 @@ def apply_primary_playback_qa(
                 "status": result.get("status"),
                 "detail": result.get("detail"),
                 "continuity_failure": result.get("continuity_failure"),
+                "decoder_failure_class": result.get("decoder_failure_class"),
                 "qa": result.get("primary_playback_qa"),
             })
             if result.get("status") == "ok":
@@ -2374,6 +2395,7 @@ def build_playback_classification_diagnostics(
                 ),
                 "detail": attempt.get("detail"),
                 "continuity_failure": attempt.get("continuity_failure"),
+                "decoder_failure_class": attempt.get("decoder_failure_class"),
                 "stability": stability.get("classification"),
                 "stability_history": stability.get("history") or [],
                 "last_decoder_result": stability.get("last_decoder_result"),
@@ -2428,6 +2450,23 @@ def build_playback_classification_diagnostics(
                 for row in candidate_rows
                 if row.get("source")
             }),
+            "decoder_failure_classes": dict(Counter(
+                str(row.get("decoder_failure_class"))
+                for row in candidate_rows
+                if row.get("decoder_failure_class")
+            )),
+            "recoverable_alternatives": [
+                {
+                    "source": row.get("source"),
+                    "family": row.get("family"),
+                    "provider_host": row.get("provider_host"),
+                    "classification": row.get("classification"),
+                }
+                for row in candidate_rows
+                if row.get("classification") in {
+                    "hls-alive-decoder-ok", "hls-alive-not-final-tested"
+                }
+            ],
         })
 
     counts = Counter(str(row.get("classification") or "unknown") for row in rows)

@@ -10,6 +10,52 @@
       "priority": 0,
       "philly": true,
       "headers": {}
+    },
+    {
+      "tvg_id": "FXMovieChannel.us",
+      "name": "FX Movie Channel",
+      "url": "https://messi.damitv.st/papi/ts2/fxm-usa.m3u8",
+      "quality": "HD",
+      "source": "IPTV-org issue #49828 fresh exact-ID lead",
+      "family": "iptv-org-fresh-lead",
+      "priority": 14,
+      "philly": false,
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1"
+      }
+    },
+    {
+      "tvg_id": "FXMovieChannel.us",
+      "name": "FX Movie Channel",
+      "url": "http://40.160.24.52/FXM/index.m3u8",
+      "quality": "HD",
+      "source": "IPTV-org issue #46441 exact-ID lead",
+      "family": "iptv-org-fresh-lead",
+      "priority": 15,
+      "philly": false,
+      "headers": {}
+    },
+    {
+      "tvg_id": "Reelz.us",
+      "name": "Reelz Channel",
+      "url": "http://40.160.24.55/REELZ/index.m3u8",
+      "quality": "HD",
+      "source": "IPTV-org issue #42986 exact-ID lead",
+      "family": "iptv-org-fresh-lead",
+      "priority": 14,
+      "philly": false,
+      "headers": {}
+    },
+    {
+      "tvg_id": "FoxSports2.us",
+      "name": "Fox Sports 2",
+      "url": "http://23.237.104.106:8080/USA_FS2/index.m3u8",
+      "quality": "HD",
+      "source": "IPTV-org issue #24276 exact-ID lead",
+      "family": "iptv-org-fresh-lead",
+      "priority": 15,
+      "philly": false,
+      "headers": {}
     }
   ]
 }

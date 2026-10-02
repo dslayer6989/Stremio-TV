@@ -2,7 +2,7 @@
   "addon": {
     "id": "com.stremiotv.philly",
     "name": "Stremio TV",
-    "description": "Curated Philadelphia-area live TV with native EPG, decoded playback QA, exact stream identity guards, and prioritized recovery hunting.",
+    "description": "Live TV with a program guide: national channels plus Altoona, PA area locals.",
     "version": "0.6.9"
   },
   "sources": {
@@ -17,9 +17,9 @@
         "fixture": "us.m3u"
       },
       {
-        "name": "IPTV-org Philadelphia",
+        "name": "IPTV-org Johnstown",
         "family": "iptv-org",
-        "url": "https://iptv-org.github.io/iptv/cities/usphl.m3u",
+        "url": "https://iptv-org.github.io/iptv/cities/usjst.m3u",
         "philly": true,
         "priority": 0,
         "required": true,
@@ -229,22 +229,22 @@
     "epg": "https://vcicio.github.io/US-EPG/merged_epg.xml.gz"
   },
   "favorites": [
-    "WPVI",
-    "6ABC",
-    "NBC 10",
-    "KYW",
-    "CBS 3",
-    "WTXF",
-    "FOX 29",
-    "WPHL",
-    "WHYY",
+    "WJAC",
+    "NBC 6",
+    "WTAJ",
+    "CBS 10",
+    "WATM",
+    "ABC 23",
+    "WWCP",
+    "FOX 8",
+    "WPSU",
+    "CBS 21",
     "Fox News Channel",
     "CNN",
     "MS NOW",
     "ESPN",
     "ESPN2",
     "Fox Sports 1",
-    "NBC Sports Philadelphia",
     "HGTV",
     "Magnolia Network",
     "TNT",
@@ -258,7 +258,7 @@
     },
     {
       "id": "philly",
-      "name": "Philadelphia Locals",
+      "name": "Altoona Locals",
       "category": "Philadelphia Locals"
     },
     {
@@ -304,15 +304,20 @@
     "enabled": true,
     "description": "Expanded-basic style Philadelphia package. Only explicitly approved Philadelphia locals and major national cable networks are kept.",
     "philly_allow": [
-      "Telemundo.us@WCAU",
-      "Fox.us@WTXFTV",
-      "WPVI.us",
-      "WCAU.us",
-      "KYW.us",
-      "WTXF.us",
-      "WHYY.us",
-      "WPHL.us",
-      "WPSG.us"
+      "NBC.us@WJACTV",
+      "CBS.us@WTAJTV",
+      "ABC.us@WATMTV",
+      "Fox.us@WWCPTV",
+      "PBS.us@WPSUTV",
+      "TheCWPlus.us@WJACTV",
+      "MNT.us@WHVLLD",
+      "WJAC.us",
+      "WTAJ.us",
+      "WATM.us",
+      "WWCP.us",
+      "WPSU.us",
+      "WHPDT1.us",
+      "CBSNewsPittsburgh.us"
     ],
     "national_allow": [
       "FoxNewsChannel.us",
@@ -1026,12 +1031,20 @@
     "philly_local_sources": {
       "enabled": true,
       "target_ids": [
-        "WPVI.us",
-        "WCAU.us",
-        "KYW.us",
-        "WHYY.us",
-        "WPHL.us",
-        "WPSG.us"
+        "NBC.us@WJACTV",
+        "CBS.us@WTAJTV",
+        "ABC.us@WATMTV",
+        "Fox.us@WWCPTV",
+        "PBS.us@WPSUTV",
+        "TheCWPlus.us@WJACTV",
+        "MNT.us@WHVLLD",
+        "WJAC.us",
+        "WTAJ.us",
+        "WATM.us",
+        "WWCP.us",
+        "WPSU.us",
+        "WHPDT1.us",
+        "CBSNewsPittsburgh.us"
       ],
       "timeout_seconds": 20,
       "byte_limit": 8000000,
@@ -1058,81 +1071,7 @@
           "content_note": "Unverified full-linear affiliate mirror."
         }
       ],
-      "official_pages": [
-        {
-          "name": "6ABC Philadelphia 24/7",
-          "tvg_id": "WPVI.us",
-          "page_url": "https://6abc.com/watch/live/",
-          "source": "6ABC Official Public Stream",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official free 6ABC streaming channel; may be news/FAST rather than full WPVI-DT1 linear.",
-          "content_kind": "news-fast"
-        },
-        {
-          "name": "NBC10 Philadelphia News",
-          "tvg_id": "WCAU.us",
-          "page_url": "https://www.nbcphiladelphia.com/watch/",
-          "source": "NBC10 Official Public Stream",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official free NBC10 streaming channel; may differ from full WCAU-DT1 linear.",
-          "content_kind": "news-fast"
-        },
-        {
-          "name": "CBS News Philadelphia",
-          "tvg_id": "KYW.us",
-          "page_url": "https://www.cbsnews.com/philadelphia/live/",
-          "source": "CBS News Philadelphia Official",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official free CBS News Philadelphia stream; not necessarily full KYW/CBS3 linear.",
-          "content_kind": "news-fast"
-        },
-        {
-          "name": "WHYY",
-          "tvg_id": "WHYY.us",
-          "page_url": "https://video.whyy.org/livestream/",
-          "source": "WHYY / PBS Official Page",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official WHYY livestream; PBS service-area geo rules may prevent GitHub-runner validation.",
-          "content_kind": "full-linear"
-        },
-        {
-          "name": "PHL17+",
-          "tvg_id": "WPHL.us",
-          "page_url": "https://phl17.com/",
-          "source": "PHL17 Official Public Page",
-          "priority": -15,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official PHL17 web/CTV lead; candidate accepted only if a public HLS is plainly exposed and passes both probes.",
-          "content_kind": "unknown"
-        },
-        {
-          "name": "Philly 57 / WPSG",
-          "tvg_id": "WPSG.us",
-          "page_url": "https://www.cbsnews.com/philadelphia/philly-57/",
-          "source": "Philly 57 Official Public Page",
-          "priority": -15,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "candidate_mode": "research-only",
-          "content_note": "Official Philly 57 page retained as a research lead. Its currently exposed HLS manifests are CBS News Philadelphia, not verified WPSG linear, so they are never emitted as WPSG candidates.",
-          "content_kind": "unknown"
-        }
-      ]
+      "official_pages": []
     },
     "targeted_source_families": {
       "enabled": true,
@@ -3275,6 +3214,41 @@
       "name": "Hallmark Movies & More",
       "category": "Movies",
       "service_type": "Premium movie network"
+    },
+    "NBC.us@WJACTV": {
+      "name": "NBC 6 / WJAC",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WTAJTV": {
+      "name": "CBS 10 / WTAJ",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WATMTV": {
+      "name": "ABC 23 / WATM",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WWCPTV": {
+      "name": "FOX 8 / WWCP",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "PBS.us@WPSUTV": {
+      "name": "WPSU PBS",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "WHPDT1.us": {
+      "name": "CBS 21 / WHP (Harrisburg)",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "CBSNewsPittsburgh.us": {
+      "name": "CBS News Pittsburgh",
+      "category": "Other",
+      "service_type": "Local broadcast"
     }
   },
   "safety_controls": {

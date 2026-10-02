@@ -1,0 +1,50 @@
+name: Keep my copy updated
+
+on:
+  schedule:
+    - cron: "37 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rebuild my copy from the original plus my local channels
+        env:
+          SYNC_TOKEN: ${{ secrets.SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          git clone --quiet "https://x-access-token:${SYNC_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" mine
+          cd mine
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          saved="$(mktemp -d)"
+          cp .github/workflows/keep-updated.yml "$saved/"
+          cp -r my-changes "$saved/"
+          git remote add original https://github.com/sondog001-cyber/Stremio-TV.git
+          git fetch --quiet original main
+          git reset --quiet --hard original/main
+          mkdir -p .github/workflows
+          cp "$saved/keep-updated.yml" .github/workflows/keep-updated.yml
+          cp -r "$saved/my-changes" ./my-changes
+          python3 my-changes/localize.py
+          git add -A
+          git commit --quiet -m "My local channels (automatic)"
+          if git diff --quiet HEAD origin/main; then
+            echo "Already up to date."
+          else
+            git push --quiet --force origin HEAD:main
+            echo "Updated from the original and re-applied my local channels."
+          fi
+
+      - name: Keep the automatic jobs switched on
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
+        run: |
+          for wf in build-and-deploy.yml keep-updated.yml; do
+            gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/enable"
+          done

@@ -374,6 +374,16 @@
             channels,
             config,
         )
+        five_build_reliability = build_five_build_reliability(
+            channels,
+            channel_changes,
+            primary_playback_qa,
+            host_redundancy,
+            build_tvnow_qa_diagnostics(stream_health_results, source_ordering_rows, primary_playback_qa),
+            missing_source_diagnostics,
+            build_info,
+            enabled=not bool(fixtures),
+        )
 
         total_streams = sum(len(c["streams"]) for c in channels)
         status = {

@@ -3290,7 +3290,8 @@
     "StarzEncoreSpanish.us": {
       "name": "Starz Encore Spanish",
       "category": "Movies",
-      "service_type": "Premium movie network"
+      "service_type": "Premium movie network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-encore-espanol-us.png"
     },
     "CinemaxHits.us": {
       "name": "Cinemax Hits",
@@ -3331,7 +3332,8 @@
     "VICETV.us": {
       "name": "VICE TV",
       "category": "Entertainment",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/vice-us.png"
     },
     "OutdoorChannel.us": {
       "name": "Outdoor Channel",
@@ -3502,6 +3504,36 @@
     },
     "PBSKids.us": {
       "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/pbs-kids-dot-icon-us.png"
+    },
+    "Fox.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-us.png"
+    },
+    "ESPNU.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-u-us.png"
+    },
+    "TennisChannel.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tennis-channel-us.png"
+    },
+    "USANetwork.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/usa-us.png"
+    },
+    "E.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/e-entertainment-us.png"
+    },
+    "DisneyJunior.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/disney-jr-us.png"
+    },
+    "Nicktoons.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nick-toons-us.png"
+    },
+    "AE.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/a-and-e-us.png"
+    },
+    "BloombergTV.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bloomberg-television-us.png"
+    },
+    "ACCNetwork.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-accn-us.png"
     }
   },
   "safety_controls": {

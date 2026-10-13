@@ -3214,7 +3214,8 @@
     "ScienceChannel.us": {
       "name": "Science Channel",
       "category": "Documentary",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-science-us.png"
     },
     "InvestigationDiscovery.us": {
       "name": "Investigation Discovery",
@@ -3455,6 +3456,9 @@
     },
     "truTV.us": {
       "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tru-tv-us.png"
+    },
+    "TurnerClassicMovies.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tcm-us.png"
     }
   },
   "safety_controls": {

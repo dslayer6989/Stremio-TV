@@ -3058,27 +3058,32 @@
     "ESPN.us": {
       "name": "ESPN",
       "category": "Sports",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png"
     },
     "ESPN2.us": {
       "name": "ESPN2",
       "category": "Sports",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-2-us.png"
     },
     "FoxSports2.us": {
       "name": "Fox Sports 2",
       "category": "Sports",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-2-us.png"
     },
     "NFLNetwork.us": {
       "name": "NFL Network",
       "category": "Sports",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png"
     },
     "MLBNetwork.us": {
       "name": "MLB Network",
       "category": "Sports",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/mlb-network-us.png"
     },
     "GolfChannel.us": {
       "name": "Golf Channel",
@@ -3129,12 +3134,14 @@
     "OWN.us": {
       "name": "OWN",
       "category": "Entertainment",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/oprah-winfrey-network-us.png"
     },
     "WEtv.us": {
       "name": "WE tv",
       "category": "Entertainment",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/we-tv-us.png"
     },
     "SundanceTV.us": {
       "name": "SundanceTV",
@@ -3193,17 +3200,20 @@
     "LMN.us": {
       "name": "LMN",
       "category": "Movies",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/lifetime-movies-us.png"
     },
     "DiscoveryChannel.us": {
       "name": "Discovery Channel",
       "category": "Documentary",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-channel-us.png"
     },
     "NationalGeographicWild.us": {
       "name": "Nat Geo Wild",
       "category": "Documentary",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hd/national-geographic-wild-hd-us.png"
     },
     "AnimalPlanet.us": {
       "name": "Animal Planet",
@@ -3268,7 +3278,8 @@
     "StarzKidsFamily.us": {
       "name": "Starz Kids & Family",
       "category": "Movies",
-      "service_type": "Premium movie network"
+      "service_type": "Premium movie network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-kids-and-family-us.png"
     },
     "StarzEdge.us": {
       "name": "Starz Edge",
@@ -3296,17 +3307,20 @@
     "HBOHits.us": {
       "name": "HBO Hits",
       "category": "Movies",
-      "service_type": "Premium movie network"
+      "service_type": "Premium movie network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hbo-hits-us.png"
     },
     "HBOMovies.us": {
       "name": "HBO Movies",
       "category": "Movies",
-      "service_type": "Premium movie network"
+      "service_type": "Premium movie network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hbo-movies-us.png"
     },
     "MTV2.us": {
       "name": "MTV2",
       "category": "Music",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/mtv-2-us.png"
     },
     "TeenNick.us": {
       "name": "TeenNick",
@@ -3334,12 +3348,14 @@
     "MLBStrikeZone.us": {
       "name": "MLB Strike Zone",
       "category": "Sports",
-      "service_type": "Premium sports network"
+      "service_type": "Premium sports network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/mlb-network-strike-zone-us.png"
     },
     "RFDTV.us": {
       "name": "RFD-TV",
       "category": "Entertainment",
-      "service_type": "Premium linear network"
+      "service_type": "Premium linear network",
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/rfd-tv-us.png"
     },
     "NewsmaxTV.us": {
       "name": "Newsmax TV",
@@ -3459,6 +3475,33 @@
     },
     "TurnerClassicMovies.us": {
       "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tcm-us.png"
+    },
+    "FoxNewsChannel.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-news-us.png"
+    },
+    "FoxBusinessNetwork.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-business-us.png"
+    },
+    "FoxSports1.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png"
+    },
+    "NBATV.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png"
+    },
+    "NHLNetwork.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nhl-network-us.png"
+    },
+    "SECNetwork.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/sec-network-us.png"
+    },
+    "MTV.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/mtv-us.png"
+    },
+    "BBCAmerica.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bbc-america-us.png"
+    },
+    "PBSKids.us": {
+      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/pbs-kids-dot-icon-us.png"
     }
   },
   "safety_controls": {

@@ -9,7 +9,7 @@ limits. Playlist scraping does not depend on an active ChatGPT conversation.
 
 The `playlist-scrub` job adds a persistent view of changes across **all original
 111 identities**, including potential backups for currently healthy channels.
-It scans the configured M3U lists (48 distinct document URLs at implementation),
+It scans configured M3U lists plus 25 additional public research playlist documents,
 deduplicates repeated exact channel/URL/header combinations, and distinguishes:
 
 - Known candidates from the current production attempt or prior scrub inventory.
@@ -38,7 +38,7 @@ subsequent builds. Healthy-channel backup leads can be reviewed from the scrub.
 
 The job uses the existing `7 */2 * * *` production schedule. It starts **after**
 `build` and `deploy`, even if either was blocked, and never gates Pages. It has
-read-only repository/Actions permissions, a 12-minute timeout and advisory failure
+read-only repository/Actions permissions, a 20-minute timeout and advisory failure
 behavior. It does not create another two-hour timer or enable GitHub code search.
 
 Open a production Actions run and read **Playlist scrub (advisory)** in its job
@@ -78,3 +78,19 @@ The CLI performs public metadata reads; `--probe-limit 0` skips media triage.
 No API token is sent to playlist or media hosts. GitHub authentication is used
 only to read trusted prior artifacts, with bearer credentials stripped on the
 artifact download redirect.
+
+## Twenty-link search target
+
+Each run aims for **20 previously unseen stream URLs** for the original111
+channels, using `--new-link-target 20`. Reads proceed in batches of four and stop
+when the target is met, every distinct available playlist has been read, or the
+600-second (10-minute) search budget expires. A batch can yield more than20; all discoveries
+are retained. Re-reading an unchanged playlist cannot produce genuinely new links.
+The report gives the target, distinct new URL count and exact stopping reason.
+Mirrors, header changes and the same URL under several IDs count only once.
+An initial inventory does not count as new discoveries. Source lists are capped
+at128 distinct documents. Missing history is reported honestly.
+
+This target concerns discovery, not20 playable streams or automatic additions.
+The three-candidate media triage budget and all production QA remain unchanged.
+Additional research catalogs are not automatically added to production sources.

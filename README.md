@@ -143,6 +143,35 @@ https://YOUR-GITHUB-USER.github.io/YOUR-REPOSITORY/manifest.json
 
 Scheduled builds refresh sources, short-lived public signed stream URLs, and guide data automatically. The resolver runs only inside the build job; the deployed addon remains static GitHub Pages and publishes validated direct upstream URLs with the required public request headers. The installation URL does not change between deployments.
 
+## v0.9.0 release evidence
+
+The target is **95 of the frozen original 111 identities**, with three consecutive
+successful **scheduled production** attempts. Development keeps the existing
+86-channel deployment floor and essential Disney/History/NatGeo guard. Do not
+raise the floor, bump the version, tag or publish from a standalone probe or audit.
+
+See the [verified baseline](research/v0.9.0-baseline-2026-10-15.md) and
+[original lineup](research/v0.9.0-original-lineup.json). The separate
+**Audit v0.9.0 release evidence (no deployment)** workflow runs after production
+completion and can also be dispatched manually. It only reads Actions artifacts;
+its own manual execution never counts toward the three scheduled builds.
+It works against the current repository, including forks, using read-only
+`contents` and `actions` permissions and the built-in `GITHUB_TOKEN`.
+
+```bash
+GITHUB_REPOSITORY=YOUR-USER/YOUR-REPO python release_readiness.py
+```
+
+The report includes failed/cancelled/latest pending scheduled attempts, checks
+artifact/run/revision provenance and normal upstream/decoded Primary evidence,
+excludes local verification overrides, rejects expanded lineups and wrong-feed
+variants, and checks that existing health, burn-in, decoder, repeat and deployment
+requirements remain enabled. Missing or expired artifacts block the audit.
+Reports are in `release-audit/` and retained as workflow artifacts for 30 days.
+An automated gate pass still requires programme identity, source provenance,
+new/replaced-source stability and all remaining acceptance review. The tool
+cannot tag, merge, change selection, raise the deployment floor or deploy.
+
 ## Local development
 
 Assemble and test the builder:

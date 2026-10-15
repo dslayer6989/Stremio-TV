@@ -1,0 +1,192 @@
+{
+  "observed_at": "2026-10-15T17:25:03.173478+00:00",
+  "environment": "Codex local runtime; not GitHub runner or user Stremio",
+  "settings": {
+    "enabled": true,
+    "duration_seconds": 12,
+    "min_decoded_seconds": 10,
+    "fps": 2,
+    "max_workers": 8,
+    "timeout_seconds": 20,
+    "detect_repeated_clips": true,
+    "repeat_min_seconds": 2,
+    "repeat_max_seconds": 4,
+    "attempts": 3,
+    "required_passes": 2
+  },
+  "results": [
+    {
+      "tvg_id": "NationalGeographic.us@HDEast",
+      "url": "http://198.58.104.90:8989/natgeo/index.m3u8",
+      "health": {
+        "status": "ok",
+        "detail": "Valid HLS playlist + segment",
+        "http_status": 200,
+        "final_url": "http://198.58.104.90:8989/natgeo/index.m3u8",
+        "latency_ms": 7905,
+        "hls_is_live": true,
+        "hls_media_sequence": 20211,
+        "hls_tail_sha256": "b3cb2ff1930863fd68a097d1367441292d9bd4d65cb01e77387e6bb424e2ca7e",
+        "hls_segment_count": 10
+      },
+      "decoder": {
+        "status": "failed",
+        "detail": "Direct media passed 0/2 decoder attempts; requires 2 (best decode 0.0s)",
+        "continuity_failure": "direct-media-insufficient-survival",
+        "decoder_failure_class": "timeout",
+        "direct_media_survival": {
+          "duration_seconds": 12,
+          "min_decoded_seconds": 10,
+          "fps": 2,
+          "attempts_required": 3,
+          "required_passes": 2,
+          "attempts_completed": 2,
+          "passed_attempts": 0,
+          "attempts": [
+            {
+              "attempt": 1,
+              "decoded_frames": 0,
+              "decoded_seconds": 0.0,
+              "elapsed_seconds": 20.01,
+              "ffmpeg_exit_code": null,
+              "repeat": null,
+              "passed": false,
+              "failure": "timeout"
+            },
+            {
+              "attempt": 2,
+              "decoded_frames": 0,
+              "decoded_seconds": 0.0,
+              "elapsed_seconds": 20.01,
+              "ffmpeg_exit_code": null,
+              "repeat": null,
+              "passed": false,
+              "failure": "timeout"
+            }
+          ],
+          "passed": false
+        }
+      }
+    },
+    {
+      "tvg_id": "HBOHits.us",
+      "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+      "health": {
+        "status": "ok",
+        "detail": "Valid HLS playlist + segment",
+        "http_status": 200,
+        "final_url": "http://4.30.180.36:8420/hbo2/tracks-v1a1/mono.m3u8?token=test",
+        "latency_ms": 10557,
+        "hls_is_live": true,
+        "hls_media_sequence": 40494,
+        "hls_tail_sha256": "d79aee772ec6fde28976f62e38f2d964a7ed88c325bc1b2133e41f82a15d798a",
+        "hls_segment_count": 4,
+        "measured_width": 1920,
+        "measured_height": 1080,
+        "measured_quality": "1080P",
+        "quality_source": "hls-master",
+        "available_resolutions": [
+          "1920x1080"
+        ]
+      },
+      "decoder": {
+        "status": "failed",
+        "detail": "Direct media passed 0/2 decoder attempts; requires 2 (best decode 0.0s)",
+        "continuity_failure": "direct-media-insufficient-survival",
+        "decoder_failure_class": "segment-or-http",
+        "direct_media_survival": {
+          "duration_seconds": 12,
+          "min_decoded_seconds": 10,
+          "fps": 2,
+          "attempts_required": 3,
+          "required_passes": 2,
+          "attempts_completed": 2,
+          "passed_attempts": 0,
+          "attempts": [
+            {
+              "attempt": 1,
+              "decoded_frames": 0,
+              "decoded_seconds": 0.0,
+              "elapsed_seconds": 6.75,
+              "ffmpeg_exit_code": 8,
+              "ffmpeg_error": "[in#0 @ 0x555673e91c00] Error opening input: Server returned 403 Forbidden (access denied) | Error opening input file [stream-url]. | Error opening input files: Server returned 403 Forbidden (access denied)",
+              "repeat": null,
+              "passed": false
+            },
+            {
+              "attempt": 2,
+              "decoded_frames": 0,
+              "decoded_seconds": 0.0,
+              "elapsed_seconds": 2.87,
+              "ffmpeg_exit_code": 8,
+              "ffmpeg_error": "[in#0 @ 0x55f234babc00] Error opening input: Server returned 403 Forbidden (access denied) | Error opening input file [stream-url]. | Error opening input files: Server returned 403 Forbidden (access denied)",
+              "repeat": null,
+              "passed": false
+            }
+          ],
+          "passed": false
+        }
+      }
+    },
+    {
+      "tvg_id": "USANetwork.us",
+      "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+      "health": {
+        "status": "ok",
+        "detail": "Valid HLS playlist + segment",
+        "http_status": 200,
+        "final_url": "http://4.30.180.36:8420/usa/tracks-v1a1/mono.m3u8?token=test",
+        "latency_ms": 10576,
+        "hls_is_live": true,
+        "hls_media_sequence": 27385,
+        "hls_tail_sha256": "a73296e53ce4f36b3d5d6974887537e6d5f6983c5919436ba8bf629d55eb21b7",
+        "hls_segment_count": 4,
+        "measured_width": 1920,
+        "measured_height": 1080,
+        "measured_quality": "1080P",
+        "quality_source": "hls-master",
+        "available_resolutions": [
+          "1920x1080"
+        ]
+      },
+      "decoder": {
+        "status": "failed",
+        "detail": "Direct media passed 0/2 decoder attempts; requires 2 (best decode 0.0s)",
+        "continuity_failure": "direct-media-insufficient-survival",
+        "decoder_failure_class": "segment-or-http",
+        "direct_media_survival": {
+          "duration_seconds": 12,
+          "min_decoded_seconds": 10,
+          "fps": 2,
+          "attempts_required": 3,
+          "required_passes": 2,
+          "attempts_completed": 2,
+          "passed_attempts": 0,
+          "attempts": [
+            {
+              "attempt": 1,
+              "decoded_frames": 0,
+              "decoded_seconds": 0.0,
+              "elapsed_seconds": 6.74,
+              "ffmpeg_exit_code": 8,
+              "ffmpeg_error": "[in#0 @ 0x555f561c5c00] Error opening input: Server returned 403 Forbidden (access denied) | Error opening input file [stream-url]. | Error opening input files: Server returned 403 Forbidden (access denied)",
+              "repeat": null,
+              "passed": false
+            },
+            {
+              "attempt": 2,
+              "decoded_frames": 0,
+              "decoded_seconds": 0.0,
+              "elapsed_seconds": 2.88,
+              "ffmpeg_exit_code": 8,
+              "ffmpeg_error": "[in#0 @ 0x563a9ec58c00] Error opening input: Server returned 403 Forbidden (access denied) | Error opening input file [stream-url]. | Error opening input files: Server returned 403 Forbidden (access denied)",
+              "repeat": null,
+              "passed": false
+            }
+          ],
+          "passed": false
+        }
+      }
+    }
+  ]
+}

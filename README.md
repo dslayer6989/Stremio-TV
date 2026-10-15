@@ -67,7 +67,7 @@ For each channel, the builder:
 
 The most reliable candidate becomes Primary. Sources explicitly marked as primary-deprioritized (currently SourPatchKid-derived direct streams) are kept out of Primary when another passing provider exists, but may remain as a last-resort Primary when they are the only source and have passed the decoder gate. Additional links are labeled Backup 1 and Backup 2.
 
-Runner/geo-blocked candidates are never mixed into the trusted lineup. When enabled, the addon publishes them in a separate **🧪 Local Test — Runner Blocked** catalog so they can be tested from the user's own Stremio/network. Required request headers are preserved through Stremio `proxyHeaders`, and each choice is labeled `LOCAL TEST 1`, `LOCAL TEST 2`, and so on.
+Runner/geo-blocked candidates can appear in a separate **🧪 Local Test — Runner Blocked** catalog for testing from the user's own Stremio/network. Required request headers are preserved through Stremio `proxyHeaders`, and choices are labeled `LOCAL TEST 1`, `LOCAL TEST 2`, and so on. Separately, explicit manual source approvals retain the existing user-local verification mechanism; accepted exceptions remain failed CI evidence and are excluded from normal decoder-qualified release coverage. See [local verification and diagnostics](docs/local-verification.md).
 
 ## Data sources
 
@@ -174,6 +174,11 @@ cannot tag, merge, change selection, raise the deployment floor or deploy.
 
 ## Local development
 
+See the [fork setup and troubleshooting guide](docs/fork-setup.md) for dependencies,
+Pages permissions, deployment URLs, workflow inventory, diagnostics and rollback.
+The [v0.9.0 release checklist](docs/v0.9.0-release-plan.md) records all acceptance
+criteria and the 111/111 v1.0.0 roadmap.
+
 Assemble and test the builder:
 
 ```bash
@@ -194,6 +199,7 @@ Build output includes `status.json` and structured reports under `site/diagnosti
 
 | Report | Purpose |
 |---|---|
+| `channel-readiness.json` | All curated IDs with per-URL Primary/backup/candidate evidence, normal QA versus local exceptions, stability, failures and unverified host alternatives |
 | `channel-changes.json` | Recovered, lost, stable, and still-missing channels |
 | `missing-source-diagnostics.json` | Actionable missing-channel classifications |
 | `stream-health.json` | Current candidate probe results |

@@ -506,7 +506,8 @@
       "The.Weather.Channel.us": "WeatherChannel.us",
       "Travel.US.-.East.us": "TravelChannel.us",
       "TV.Land.-.Eastern.us": "TVLand.us",
-      "Magnolia.-.East.us": "MagnoliaNetwork.us"
+      "Magnolia.-.East.us": "MagnoliaNetwork.us",
+      "NationalGeographic.us@HDEast": "NationalGeographic.us"
     },
     "approved_source_aliases": {
       "E.us": [
@@ -827,6 +828,13 @@
         "reason": "User-confirmed Stremio Local Test AVFormat playback error on Bravo West; last six backend probes also failed with timeouts/cooldowns.",
         "observed_at": "2026-10-13",
         "evidence": "Local Stremio user playback report and latest successful deployment diagnostics: Shovo Bravo West source, 6 consecutive probe failures, Dead status."
+      },
+      {
+        "tvg_id": "HallmarkChannel.us",
+        "url": "http://206.212.244.63/84/index.m3u8",
+        "reason": "User reported Hallmark Channel Shovo Local Test failed on 2026-10-15; do not reoffer this exact endpoint as an untested recovery.",
+        "observed_at": "2026-10-15",
+        "evidence": "User Stremio report: Hallmark Channel Shovo test also failed. Unique Hallmark candidate in deployed Local Test artifact 11979897348 and subsequent artifacts, provider 206.212.244.63; stream-health provides exact URL."
       }
     ]
   },

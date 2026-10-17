@@ -1,0 +1,4327 @@
+{
+  "observed_at": "2026-10-15T17:25:36.997544+00:00",
+  "advisory_only": true,
+  "attempts": [
+    {
+      "run_id": 38721623162,
+      "artifact_id": 11967465598,
+      "build": {
+        "build_id": "v0.7.0-20261015T103833Z-ad6c5a40f59d",
+        "version": "0.7.0",
+        "built_at": "2026-10-15T10:38:33Z",
+        "builder": "stremio-tv-static",
+        "source_revision": "ad6c5a40f59d46d44ec9854de0923bb0cf9bda3f",
+        "repository": "sondog001-cyber/Stremio-TV",
+        "workflow": "Build and deploy Stremio TV",
+        "workflow_run_id": "38721623162",
+        "workflow_run_number": "1436",
+        "workflow_run_attempt": "1",
+        "public_base_url": "https://sondog001-cyber.github.io/Stremio-TV",
+        "deployment_mode": "public",
+        "channels": 89,
+        "total_streams": 132
+      },
+      "input_sha256": {
+        "stream-health.json": "b0589785917260450c483027dc846f2aad65fe4967d4c9f86841ad79ac2e83da",
+        "primary-playback-qa.json": "96317213f84e1d0fd0610c0e97de827061f9450c075a80af75fece2d6cd01bb5"
+      },
+      "channels": [
+        {
+          "tvg_id": "DisneyChannel.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156/disney/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_94bf3af642e76c",
+              "tvg_id": "DisneyChannel.us",
+              "name": "Disney Channel (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 2.21,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156/disney/index.m3u8",
+                  "stability_key": "03671e7ce8d5242f942a3dd426b912a3a53b50d9",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 2.21,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "HBOHits.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed 60s burn-in (5 probes) before promotion",
+              "http_status": 200,
+              "stability_class": "Quarantine",
+              "next_probe_at": null
+            },
+            {
+              "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+              "family": "aria-tv",
+              "source": "aria-tv United States",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_e47315b68ae486",
+              "tvg_id": "HBOHits.us@East",
+              "name": "HBO Hits",
+              "passing_index": null,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 1.81,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "[NULL @ 0x5655029a52c0] non-existing SPS 0 referenced in buffering period | [h264 @ 0x5655029a6640] non-existing SPS 0 referenced in buffering period",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "aynascope.net",
+                  "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+                  "stability_key": "31350cf126ce5b47aba31095d2376b5ee777c8ea",
+                  "stability_identity": null,
+                  "status": "failed",
+                  "detail": "Direct media passed 0/2 decoder attempts; requires 1 (best decode 0.0s)",
+                  "continuity_failure": "primary-playback-decode-failed",
+                  "decoder_failure_class": "timeout",
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 2,
+                    "passed_attempts": 0,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 0,
+                        "decoded_seconds": 0.0,
+                        "elapsed_seconds": 25.01,
+                        "ffmpeg_exit_code": null,
+                        "repeat": null,
+                        "passed": false,
+                        "failure": "timeout"
+                      },
+                      {
+                        "attempt": 2,
+                        "decoded_frames": 0,
+                        "decoded_seconds": 0.0,
+                        "elapsed_seconds": 25.01,
+                        "ffmpeg_exit_code": null,
+                        "repeat": null,
+                        "passed": false,
+                        "failure": "timeout"
+                      }
+                    ],
+                    "passed": false
+                  }
+                }
+              ],
+              "rescue_attempts": [
+                {
+                  "source": "aria-tv United States",
+                  "family": "aria-tv",
+                  "provider_host": "4.30.180.36",
+                  "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+                  "stability_key": "f2673b9b20c8486d7727c7daf2dfc3fb86af50f4",
+                  "transport_probe_1": {
+                    "status": "ok",
+                    "detail": "Valid HLS playlist + segment",
+                    "http_status": 200,
+                    "final_url": "http://4.30.180.36:8420/hbo2/tracks-v1a1/mono.m3u8?token=test",
+                    "latency_ms": 150,
+                    "hls_is_live": true,
+                    "hls_media_sequence": 37561,
+                    "hls_tail_sha256": "6938e7641ab8c95b2b56bc69b761bbe1dad2525619a7c46ba87d64cca27e88a3",
+                    "hls_segment_count": 4,
+                    "measured_width": 1920,
+                    "measured_height": 1080,
+                    "measured_quality": "1080P",
+                    "quality_source": "hls-master",
+                    "available_resolutions": [
+                      "1920x1080"
+                    ]
+                  },
+                  "transport_probe_2": {
+                    "status": "ok",
+                    "detail": "Valid HLS playlist + segment",
+                    "http_status": 200,
+                    "final_url": "http://4.30.180.36:8420/hbo2/tracks-v1a1/mono.m3u8?token=test",
+                    "latency_ms": 55,
+                    "hls_is_live": true,
+                    "hls_media_sequence": 37562,
+                    "hls_tail_sha256": "7e611f5e88b9ae14505d55038f201a767e1e853142bcbac74c481847d3d65593",
+                    "hls_segment_count": 4,
+                    "measured_width": 1920,
+                    "measured_height": 1080,
+                    "measured_quality": "1080P",
+                    "quality_source": "hls-master",
+                    "available_resolutions": [
+                      "1920x1080"
+                    ]
+                  },
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 1.81,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "[NULL @ 0x5655029a52c0] non-existing SPS 0 referenced in buffering period | [h264 @ 0x5655029a6640] non-existing SPS 0 referenced in buffering period",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescued_stream": {
+                "name_raw": "HBO Hits",
+                "name": "HBO Hits",
+                "quality": null,
+                "tvg_id": "HBOHits.us",
+                "logo": "https://i.ibb.co/0V6R2Zt5/IMG-2483.png",
+                "group": "",
+                "language": "English",
+                "country": "US",
+                "source": "aria-tv United States",
+                "family": "aria-tv",
+                "priority": 7,
+                "philly": false,
+                "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+                "headers": {},
+                "source_status": "stable",
+                "source_tvg_id": "HBOHits.us",
+                "targeted_scan": true,
+                "health": {
+                  "status": "ok",
+                  "detail": "Valid HLS playlist + segment",
+                  "http_status": 200,
+                  "final_url": "http://4.30.180.36:8420/hbo2/tracks-v1a1/mono.m3u8?token=test",
+                  "latency_ms": 55,
+                  "hls_is_live": true,
+                  "hls_media_sequence": 37562,
+                  "hls_tail_sha256": "7e611f5e88b9ae14505d55038f201a767e1e853142bcbac74c481847d3d65593",
+                  "hls_segment_count": 4,
+                  "measured_width": 1920,
+                  "measured_height": 1080,
+                  "measured_quality": "1080P",
+                  "quality_source": "hls-master",
+                  "available_resolutions": [
+                    "1920x1080"
+                  ]
+                },
+                "effective_url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+                "provider_host": "4.30.180.36",
+                "stability": {
+                  "classification": "Dead",
+                  "rank": 3,
+                  "passes": 0,
+                  "samples": 2,
+                  "history_size": 5,
+                  "history": [
+                    false,
+                    false
+                  ],
+                  "last_result": "cooldown",
+                  "last_seen": "2026-10-15T10:57:25Z",
+                  "consecutive_failures": 2,
+                  "next_probe_at": "2026-10-15T10:54:19Z",
+                  "last_decoder_result": null,
+                  "decoder_consecutive_failures": 0
+                },
+                "primary_playback_qa": {
+                  "duration_seconds": 10,
+                  "min_decoded_seconds": 8,
+                  "fps": 2,
+                  "attempts_required": 2,
+                  "required_passes": 1,
+                  "attempts_completed": 1,
+                  "passed_attempts": 1,
+                  "attempts": [
+                    {
+                      "attempt": 1,
+                      "decoded_frames": 20,
+                      "decoded_seconds": 10.0,
+                      "elapsed_seconds": 1.81,
+                      "ffmpeg_exit_code": 0,
+                      "ffmpeg_error": "[NULL @ 0x5655029a52c0] non-existing SPS 0 referenced in buffering period | [h264 @ 0x5655029a6640] non-existing SPS 0 referenced in buffering period",
+                      "repeat": null,
+                      "passed": true
+                    }
+                  ],
+                  "passed": true
+                }
+              },
+              "action": "rescued-cooldown-candidate"
+            }
+          ]
+        },
+        {
+          "tvg_id": "History.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/history/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_b6b9d53b8997a8",
+              "tvg_id": "History.us@East",
+              "name": "History (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 6.05,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/history/index.m3u8",
+                  "stability_key": "8dbdbdc1643a6ac86563893eddffb9a0ff362ac7",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 6.05,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_f1325fe734eba1",
+              "tvg_id": "NationalGeographic.us",
+              "name": "National Geographic (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 2.86,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+                  "stability_key": "428fe08d0f7359b1768728f6ea2acf44cc2f4be8",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 2.86,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "TeenNick.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed 60s burn-in (5 probes) before promotion",
+              "http_status": 200,
+              "stability_class": "Quarantine",
+              "next_probe_at": null
+            },
+            {
+              "url": "http://40.160.24.55/TEEN_NICK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://212.102.60.231/Teen_Nick/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/teennick-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-650.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://89.33.29.115:8080/TeenNick/index.m3u8",
+              "family": "github-playlist",
+              "source": "DearBulut best public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 409",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/hd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/sd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://dokko1new.newkso.ru/dokko1/premium650/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_834f7933797990",
+              "tvg_id": "TeenNick.us@East",
+              "name": "TeenNick",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 2,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 0,
+                    "decoded_seconds": 0.0,
+                    "elapsed_seconds": 25.01,
+                    "ffmpeg_exit_code": null,
+                    "repeat": null,
+                    "passed": false,
+                    "failure": "timeout"
+                  },
+                  {
+                    "attempt": 2,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 8.28,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "aynascope.net",
+                  "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+                  "stability_key": "c333662259e91b40ac50815e5754e479d31cb355",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/2 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 2,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 0,
+                        "decoded_seconds": 0.0,
+                        "elapsed_seconds": 25.01,
+                        "ffmpeg_exit_code": null,
+                        "repeat": null,
+                        "passed": false,
+                        "failure": "timeout"
+                      },
+                      {
+                        "attempt": 2,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 8.28,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "USANetwork.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://190.197.41.183/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://200.32.231.178/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US Raw",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://206.212.244.63/168/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK_WEST/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://gpuserver5.tier1streams.com/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://212.102.60.231/USA_Network/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://thevdm.xyz:25461/Jennifer/Year!/44205",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/hd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/sd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/usa-network-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-343.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://fl3.tv.debridio.com/USA_NETWORK/tracks-v1a1/mono.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://streamer1.nexgen.bz/USA/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "http://moj-rep.tv.debridio.com:8080/USA_NETWORK/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://nfsnew.newkso.ru/nfs/premium343/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://ft.fbcdntv247.cfd/memfs/594edb0c-896e-4853-b97b-26c3a4f05156_output_0.m3u8",
+              "family": "tv247",
+              "source": "arquerido TV247 current US mirrors",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-15T10:54:19Z"
+            }
+          ],
+          "primary_qa": []
+        }
+      ]
+    },
+    {
+      "run_id": 38744563506,
+      "artifact_id": 11979897348,
+      "build": {
+        "build_id": "v0.7.0-20261015T134010Z-36b53e821287",
+        "version": "0.7.0",
+        "built_at": "2026-10-15T13:40:10Z",
+        "builder": "stremio-tv-static",
+        "source_revision": "36b53e8212878a5484f82aa03661569c27b3ef96",
+        "repository": "sondog001-cyber/Stremio-TV",
+        "workflow": "Build and deploy Stremio TV",
+        "workflow_run_id": "38744563506",
+        "workflow_run_number": "1438",
+        "workflow_run_attempt": "1",
+        "public_base_url": "https://sondog001-cyber.github.io/Stremio-TV",
+        "deployment_mode": "public",
+        "channels": 87,
+        "total_streams": 125
+      },
+      "input_sha256": {
+        "stream-health.json": "4f9c85ac6efb19bc8342264346db221e168aa034976173dbb0f3b838679ffc63",
+        "primary-playback-qa.json": "54438bdea2615be3cc476748ff01315fbdc38fcd618b725d316ab60c8607c41e"
+      },
+      "channels": [
+        {
+          "tvg_id": "DisneyChannel.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156/disney/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_94bf3af642e76c",
+              "tvg_id": "DisneyChannel.us",
+              "name": "Disney Channel (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 2.49,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156/disney/index.m3u8",
+                  "stability_key": "03671e7ce8d5242f942a3dd426b912a3a53b50d9",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 2.49,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "HBOHits.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-15T19:59:58Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+              "family": "aria-tv",
+              "source": "aria-tv United States",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": 403,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "History.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/history/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_b6b9d53b8997a8",
+              "tvg_id": "History.us@East",
+              "name": "History (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 3.45,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/history/index.m3u8",
+                  "stability_key": "8dbdbdc1643a6ac86563893eddffb9a0ff362ac7",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 3.45,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_f1325fe734eba1",
+              "tvg_id": "NationalGeographic.us",
+              "name": "National Geographic (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 6.32,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+                  "stability_key": "428fe08d0f7359b1768728f6ea2acf44cc2f4be8",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 6.32,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "TeenNick.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-15T14:59:58Z"
+            },
+            {
+              "url": "http://40.160.24.55/TEEN_NICK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/Teen_Nick/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/teennick-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-650.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://89.33.29.115:8080/TeenNick/index.m3u8",
+              "family": "github-playlist",
+              "source": "DearBulut best public playlist",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "failed",
+              "health_detail": "HTTP 409",
+              "http_status": 409,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/hd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/sd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dokko1new.newkso.ru/dokko1/premium650/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "USANetwork.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://190.197.41.183/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://200.32.231.178/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US Raw",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://206.212.244.63/168/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK_WEST/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://gpuserver5.tier1streams.com/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/USA_Network/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://thevdm.xyz:25461/Jennifer/Year!/44205",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/hd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/sd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/usa-network-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-343.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": 403,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://fl3.tv.debridio.com/USA_NETWORK/tracks-v1a1/mono.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://streamer1.nexgen.bz/USA/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://moj-rep.tv.debridio.com:8080/USA_NETWORK/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://nfsnew.newkso.ru/nfs/premium343/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://ft.fbcdntv247.cfd/memfs/594edb0c-896e-4853-b97b-26c3a4f05156_output_0.m3u8",
+              "family": "tv247",
+              "source": "arquerido TV247 current US mirrors",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "failed",
+              "health_detail": "<urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        }
+      ]
+    },
+    {
+      "run_id": 38744635025,
+      "artifact_id": 11981186753,
+      "build": {
+        "build_id": "v0.7.0-20261015T140430Z-2f43fb8bb7ee",
+        "version": "0.7.0",
+        "built_at": "2026-10-15T14:04:30Z",
+        "builder": "stremio-tv-static",
+        "source_revision": "2f43fb8bb7ee244bdd222957ecf23827e72e74b2",
+        "repository": "sondog001-cyber/Stremio-TV",
+        "workflow": "Build and deploy Stremio TV",
+        "workflow_run_id": "38744635025",
+        "workflow_run_number": "1439",
+        "workflow_run_attempt": "1",
+        "public_base_url": "https://sondog001-cyber.github.io/Stremio-TV",
+        "deployment_mode": "public",
+        "channels": 83,
+        "total_streams": 112
+      },
+      "input_sha256": {
+        "stream-health.json": "396067b7290fb0f18b97c63e27630d6d39a7e8d499d6dff1ddd3583dbe62da02",
+        "primary-playback-qa.json": "b4ec37eb03246605c16b78653bdf27db832458d97d18e3e558e06f7fa2f40966"
+      },
+      "channels": [
+        {
+          "tvg_id": "DisneyChannel.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156/disney/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Backup",
+              "next_probe_at": "2026-10-15T15:23:50Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "HBOHits.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 2 failed after initial pass: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-16T14:23:50Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+              "family": "aria-tv",
+              "source": "aria-tv United States",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "History.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/history/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Backup",
+              "next_probe_at": "2026-10-15T15:23:50Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "HTTP 403",
+              "http_status": 403,
+              "stability_class": "Backup",
+              "next_probe_at": "2026-10-15T15:23:50Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "TeenNick.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 2 failed after initial pass: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-15T20:23:50Z"
+            },
+            {
+              "url": "http://40.160.24.55/TEEN_NICK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/Teen_Nick/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/teennick-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-650.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://89.33.29.115:8080/TeenNick/index.m3u8",
+              "family": "github-playlist",
+              "source": "DearBulut best public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 409",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/hd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/sd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dokko1new.newkso.ru/dokko1/premium650/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "USANetwork.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://190.197.41.183/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://200.32.231.178/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US Raw",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://206.212.244.63/168/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK_WEST/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://gpuserver5.tier1streams.com/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/USA_Network/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://thevdm.xyz:25461/Jennifer/Year!/44205",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/hd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/sd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/usa-network-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-343.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://fl3.tv.debridio.com/USA_NETWORK/tracks-v1a1/mono.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://streamer1.nexgen.bz/USA/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://moj-rep.tv.debridio.com:8080/USA_NETWORK/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://nfsnew.newkso.ru/nfs/premium343/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://ft.fbcdntv247.cfd/memfs/594edb0c-896e-4853-b97b-26c3a4f05156_output_0.m3u8",
+              "family": "tv247",
+              "source": "arquerido TV247 current US mirrors",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        }
+      ]
+    },
+    {
+      "run_id": 38753332005,
+      "artifact_id": 11983259119,
+      "build": {
+        "build_id": "v0.7.0-20261015T144011Z-2f43fb8bb7ee",
+        "version": "0.7.0",
+        "built_at": "2026-10-15T14:40:11Z",
+        "builder": "stremio-tv-static",
+        "source_revision": "2f43fb8bb7ee244bdd222957ecf23827e72e74b2",
+        "repository": "sondog001-cyber/Stremio-TV",
+        "workflow": "Build and deploy Stremio TV",
+        "workflow_run_id": "38753332005",
+        "workflow_run_number": "1440",
+        "workflow_run_attempt": "1",
+        "public_base_url": "https://sondog001-cyber.github.io/Stremio-TV",
+        "deployment_mode": "public",
+        "channels": 81,
+        "total_streams": 115
+      },
+      "input_sha256": {
+        "stream-health.json": "0d2b7746e06653cd04bd369e2c0f15e2eafa594ed88f17a69806d7b3e6fc4da7",
+        "primary-playback-qa.json": "c667c1c91f59e5b38a8098681bd950b1df2410826f94fc88e8506ddfdfe120e8"
+      },
+      "channels": [
+        {
+          "tvg_id": "DisneyChannel.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156/disney/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_94bf3af642e76c",
+              "tvg_id": "DisneyChannel.us",
+              "name": "Disney Channel (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 3.9,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156/disney/index.m3u8",
+                  "stability_key": "03671e7ce8d5242f942a3dd426b912a3a53b50d9",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 3.9,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "HBOHits.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 2 failed after initial pass: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-16T15:00:14Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+              "family": "aria-tv",
+              "source": "aria-tv United States",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "History.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/history/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_b6b9d53b8997a8",
+              "tvg_id": "History.us@East",
+              "name": "History (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 4.03,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/history/index.m3u8",
+                  "stability_key": "8dbdbdc1643a6ac86563893eddffb9a0ff362ac7",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 4.03,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_f1325fe734eba1",
+              "tvg_id": "NationalGeographic.us",
+              "name": "National Geographic (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 4.17,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+                  "stability_key": "428fe08d0f7359b1768728f6ea2acf44cc2f4be8",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 4.17,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "TeenNick.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 2 failed after initial pass: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-15T21:00:14Z"
+            },
+            {
+              "url": "http://40.160.24.55/TEEN_NICK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/Teen_Nick/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/teennick-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-650.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://89.33.29.115:8080/TeenNick/index.m3u8",
+              "family": "github-playlist",
+              "source": "DearBulut best public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 409",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/hd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/sd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dokko1new.newkso.ru/dokko1/premium650/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "USANetwork.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://190.197.41.183/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://200.32.231.178/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US Raw",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://206.212.244.63/168/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK_WEST/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://gpuserver5.tier1streams.com/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/USA_Network/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://thevdm.xyz:25461/Jennifer/Year!/44205",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/hd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/sd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/usa-network-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-343.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://fl3.tv.debridio.com/USA_NETWORK/tracks-v1a1/mono.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://streamer1.nexgen.bz/USA/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://moj-rep.tv.debridio.com:8080/USA_NETWORK/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://nfsnew.newkso.ru/nfs/premium343/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://ft.fbcdntv247.cfd/memfs/594edb0c-896e-4853-b97b-26c3a4f05156_output_0.m3u8",
+              "family": "tv247",
+              "source": "arquerido TV247 current US mirrors",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        }
+      ]
+    },
+    {
+      "run_id": 38755293691,
+      "artifact_id": 11984204664,
+      "build": {
+        "build_id": "v0.7.0-20261015T150558Z-8cad63a8c7ed",
+        "version": "0.7.0",
+        "built_at": "2026-10-15T15:05:58Z",
+        "builder": "stremio-tv-static",
+        "source_revision": "8cad63a8c7ed4a2e56a35e2371ab8842d44877a1",
+        "repository": "sondog001-cyber/Stremio-TV",
+        "workflow": "Build and deploy Stremio TV",
+        "workflow_run_id": "38755293691",
+        "workflow_run_number": "1441",
+        "workflow_run_attempt": "1",
+        "public_base_url": "https://sondog001-cyber.github.io/Stremio-TV",
+        "deployment_mode": "public",
+        "channels": 86,
+        "total_streams": 123
+      },
+      "input_sha256": {
+        "stream-health.json": "176479158563b565ec6e558effbeb790513d29dcc4ce7ac8412f029b89a726e3",
+        "primary-playback-qa.json": "e567047398f3747398520f4b911f69f67268b633e90c1f4e7098a03dce6a95c3"
+      },
+      "channels": [
+        {
+          "tvg_id": "DisneyChannel.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156/disney/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_94bf3af642e76c",
+              "tvg_id": "DisneyChannel.us",
+              "name": "Disney Channel (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 2.98,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156/disney/index.m3u8",
+                  "stability_key": "03671e7ce8d5242f942a3dd426b912a3a53b50d9",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 2.98,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "HBOHits.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-16T15:25:22Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+              "family": "aria-tv",
+              "source": "aria-tv United States",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "History.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/history/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "HTTP 404",
+              "http_status": 404,
+              "stability_class": "Backup",
+              "next_probe_at": "2026-10-15T16:25:22Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_f1325fe734eba1",
+              "tvg_id": "NationalGeographic.us",
+              "name": "National Geographic (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 4.09,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+                  "stability_key": "428fe08d0f7359b1768728f6ea2acf44cc2f4be8",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 4.09,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "TeenNick.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "<urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-15T21:25:22Z"
+            },
+            {
+              "url": "http://40.160.24.55/TEEN_NICK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/Teen_Nick/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/teennick-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-650.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://89.33.29.115:8080/TeenNick/index.m3u8",
+              "family": "github-playlist",
+              "source": "DearBulut best public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 409",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/hd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/sd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dokko1new.newkso.ru/dokko1/premium650/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "USANetwork.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://190.197.41.183/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://200.32.231.178/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US Raw",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://206.212.244.63/168/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK_WEST/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://gpuserver5.tier1streams.com/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/USA_Network/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://thevdm.xyz:25461/Jennifer/Year!/44205",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/hd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/sd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/usa-network-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-343.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://fl3.tv.debridio.com/USA_NETWORK/tracks-v1a1/mono.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://streamer1.nexgen.bz/USA/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://moj-rep.tv.debridio.com:8080/USA_NETWORK/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://nfsnew.newkso.ru/nfs/premium343/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://ft.fbcdntv247.cfd/memfs/594edb0c-896e-4853-b97b-26c3a4f05156_output_0.m3u8",
+              "family": "tv247",
+              "source": "arquerido TV247 current US mirrors",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        }
+      ]
+    },
+    {
+      "run_id": 38770608444,
+      "artifact_id": 11991554291,
+      "build": {
+        "build_id": "v0.7.0-20261015T163826Z-8cad63a8c7ed",
+        "version": "0.7.0",
+        "built_at": "2026-10-15T16:38:26Z",
+        "builder": "stremio-tv-static",
+        "source_revision": "8cad63a8c7ed4a2e56a35e2371ab8842d44877a1",
+        "repository": "sondog001-cyber/Stremio-TV",
+        "workflow": "Build and deploy Stremio TV",
+        "workflow_run_id": "38770608444",
+        "workflow_run_number": "1442",
+        "workflow_run_attempt": "1",
+        "public_base_url": "https://sondog001-cyber.github.io/Stremio-TV",
+        "deployment_mode": "public",
+        "channels": 87,
+        "total_streams": 124
+      },
+      "input_sha256": {
+        "stream-health.json": "7a0294eb74a95aff1cd0046464255969170262416c15190ebf63c19dacc0eb91",
+        "primary-playback-qa.json": "341f870e9167c2527d75a3b8423e2def71758ca7c1a6315ac3b32af8e19fee28"
+      },
+      "channels": [
+        {
+          "tvg_id": "DisneyChannel.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156/disney/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_94bf3af642e76c",
+              "tvg_id": "DisneyChannel.us",
+              "name": "Disney Channel (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 2.46,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156/disney/index.m3u8",
+                  "stability_key": "03671e7ce8d5242f942a3dd426b912a3a53b50d9",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 2.46,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "HBOHits.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/hbo2/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "failed",
+              "health_detail": "Burn-in probe 3 failed after initial pass: timed out",
+              "http_status": null,
+              "stability_class": "Quarantine",
+              "next_probe_at": "2026-10-16T16:57:53Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/hbo2/index.m3u8?token=test",
+              "family": "aria-tv",
+              "source": "aria-tv United States",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        },
+        {
+          "tvg_id": "History.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/history/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_b6b9d53b8997a8",
+              "tvg_id": "History.us@East",
+              "name": "History (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 2.78,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/history/index.m3u8",
+                  "stability_key": "8dbdbdc1643a6ac86563893eddffb9a0ff362ac7",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 2.78,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "published": true,
+          "candidates": [
+            {
+              "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed established-stream two-probe validation",
+              "http_status": 200,
+              "stability_class": "Stable",
+              "next_probe_at": null
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_f1325fe734eba1",
+              "tvg_id": "NationalGeographic.us",
+              "name": "National Geographic (United States)",
+              "passing_index": 0,
+              "passing_qa": {
+                "duration_seconds": 10,
+                "min_decoded_seconds": 8,
+                "fps": 2,
+                "attempts_required": 2,
+                "required_passes": 1,
+                "attempts_completed": 1,
+                "passed_attempts": 1,
+                "attempts": [
+                  {
+                    "attempt": 1,
+                    "decoded_frames": 20,
+                    "decoded_seconds": 10.0,
+                    "elapsed_seconds": 6.59,
+                    "ffmpeg_exit_code": 0,
+                    "ffmpeg_error": "",
+                    "repeat": null,
+                    "passed": true
+                  }
+                ],
+                "passed": true
+              },
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "212.5.144.156",
+                  "url": "http://212.5.144.156:8080/natgeo/index.m3u8",
+                  "stability_key": "428fe08d0f7359b1768728f6ea2acf44cc2f4be8",
+                  "stability_identity": null,
+                  "status": "ok",
+                  "detail": "Passed 1/1 direct-media decoder attempts (requires 1)",
+                  "continuity_failure": null,
+                  "decoder_failure_class": null,
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 1,
+                    "passed_attempts": 1,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 20,
+                        "decoded_seconds": 10.0,
+                        "elapsed_seconds": 6.59,
+                        "ffmpeg_exit_code": 0,
+                        "ffmpeg_error": "",
+                        "repeat": null,
+                        "passed": true
+                      }
+                    ],
+                    "passed": true
+                  }
+                }
+              ],
+              "rescue_attempts": [],
+              "rescued_stream": null,
+              "action": "kept-primary"
+            }
+          ]
+        },
+        {
+          "tvg_id": "TeenNick.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "ok",
+              "health_detail": "Passed 60s burn-in (5 probes) before promotion",
+              "http_status": 200,
+              "stability_class": "Backup",
+              "next_probe_at": null
+            },
+            {
+              "url": "http://40.160.24.55/TEEN_NICK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/Teen_Nick/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/teennick-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-650.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://89.33.29.115:8080/TeenNick/index.m3u8",
+              "family": "github-playlist",
+              "source": "DearBulut best public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 409",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/hd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/TeenNickEast/sd",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dokko1new.newkso.ru/dokko1/premium650/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/TeenNickEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v14.thetvapp.to/hls/TeenNickEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": [
+            {
+              "channel_id": "stremiotv_834f7933797990",
+              "tvg_id": "TeenNick.us@East",
+              "name": "TeenNick",
+              "passing_index": null,
+              "passing_qa": null,
+              "attempts": [
+                {
+                  "stream_index": 0,
+                  "role_before": "Primary",
+                  "source": "IPTV-org US",
+                  "family": "iptv-org",
+                  "provider_host": "aynascope.net",
+                  "url": "http://tvsen7.aynascope.net/teennick/index.m3u8",
+                  "stability_key": "c333662259e91b40ac50815e5754e479d31cb355",
+                  "stability_identity": null,
+                  "status": "failed",
+                  "detail": "Direct media passed 0/2 decoder attempts; requires 1 (best decode 0.0s)",
+                  "continuity_failure": "primary-playback-decode-failed",
+                  "decoder_failure_class": "zero-frame",
+                  "qa": {
+                    "duration_seconds": 10,
+                    "min_decoded_seconds": 8,
+                    "fps": 2,
+                    "attempts_required": 2,
+                    "required_passes": 1,
+                    "attempts_completed": 2,
+                    "passed_attempts": 0,
+                    "attempts": [
+                      {
+                        "attempt": 1,
+                        "decoded_frames": 0,
+                        "decoded_seconds": 0.0,
+                        "elapsed_seconds": 5.17,
+                        "ffmpeg_exit_code": 146,
+                        "ffmpeg_error": "[tcp @ 0x55b9767e2540] Connection to tcp://tvsen7.aynascope.net:80 failed: Connection timed out | [in#0 @ 0x55b976820ec0] Error opening input: Connection timed out | Error opening input file [stream-url]. | Error opening input files: Connection timed out",
+                        "repeat": null,
+                        "passed": false
+                      },
+                      {
+                        "attempt": 2,
+                        "decoded_frames": 0,
+                        "decoded_seconds": 0.0,
+                        "elapsed_seconds": 5.18,
+                        "ffmpeg_exit_code": 146,
+                        "ffmpeg_error": "[tcp @ 0x555fb2498540] Connection to tcp://tvsen7.aynascope.net:80 failed: Connection timed out | [in#0 @ 0x555fb24d6ec0] Error opening input: Connection timed out | Error opening input file [stream-url]. | Error opening input files: Connection timed out",
+                        "repeat": null,
+                        "passed": false
+                      }
+                    ],
+                    "passed": false
+                  }
+                }
+              ],
+              "rescue_attempts": [
+                {
+                  "source": "GoGetta public-files mirror",
+                  "family": "github-playlist",
+                  "provider_host": "thetvapp.to",
+                  "url": "https://thetvapp.to/tv/teennick-live-stream/",
+                  "stability_key": "5f22511a0b4a12b53a35bbb58a80bd6e8962482b",
+                  "transport_probe_1": {
+                    "status": "failed",
+                    "detail": "<urlopen error timed out>",
+                    "latency_ms": 8034
+                  },
+                  "transport_probe_2": null,
+                  "status": "failed",
+                  "detail": "<urlopen error timed out>",
+                  "continuity_failure": "rescue-transport-failed",
+                  "decoder_failure_class": null,
+                  "qa": null
+                },
+                {
+                  "source": "FMHY-adjacent InsolenceTVGo cache",
+                  "family": "insolence",
+                  "provider_host": "ufospeeds.com",
+                  "url": "http://ufospeeds.com:2095/73622931496/7122224796/164",
+                  "stability_key": "cc22099e56ac9e09abb728e9ab61f7001ea5fde5",
+                  "transport_probe_1": {
+                    "status": "failed",
+                    "detail": "<urlopen error [Errno -2] Name or service not known>",
+                    "latency_ms": 63
+                  },
+                  "transport_probe_2": null,
+                  "status": "failed",
+                  "detail": "<urlopen error [Errno -2] Name or service not known>",
+                  "continuity_failure": "rescue-transport-failed",
+                  "decoder_failure_class": null,
+                  "qa": null
+                }
+              ],
+              "rescued_stream": null,
+              "action": "dropped-channel"
+            }
+          ]
+        },
+        {
+          "tvg_id": "USANetwork.us",
+          "published": false,
+          "candidates": [
+            {
+              "url": "http://190.197.41.183/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://200.32.231.178/USA_NETWORK/index.m3u8",
+              "family": "iptv-org",
+              "source": "IPTV-org US Raw",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T10:57:25Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://206.212.244.63/168/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://40.160.24.55/USA_NETWORK_WEST/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://gpuserver5.tier1streams.com/USA_NETWORK/index.m3u8",
+              "family": "shovo",
+              "source": "IPTV-By-Shovo US",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://212.102.60.231/USA_Network/index.m3u8",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 404",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://thevdm.xyz:25461/Jennifer/Year!/44205",
+              "family": "insolence",
+              "source": "FMHY-adjacent InsolenceTVGo cache",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/hd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://tvpass.org/live/USANetworkEast/sd",
+              "family": "openstream",
+              "source": "OpenStream TVPass mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://thetvapp.to/tv/usa-network-live-stream/",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://dlhd.sx/stream/stream-343.php",
+              "family": "github-playlist",
+              "source": "GoGetta public-files mirror",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -5] No address associated with hostname>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://4.30.180.36:8420/usa/index.m3u8?token=test",
+              "family": "github-playlist",
+              "source": "WizakorHD public playlist",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: Burn-in probe 3 failed after initial pass: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://fl3.tv.debridio.com/USA_NETWORK/tracks-v1a1/mono.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://streamer1.nexgen.bz/USA/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "http://moj-rep.tv.debridio.com:8080/USA_NETWORK/index.m3u8",
+              "family": "github-playlist",
+              "source": "IvanMinier public US multi-source index",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://nfsnew.newkso.ru/nfs/premium343/mono.m3u8",
+              "family": "daddylive",
+              "source": "DaddyLive current public US list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: HTTP 403",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://ft.fbcdntv247.cfd/memfs/594edb0c-896e-4853-b97b-26c3a4f05156_output_0.m3u8",
+              "family": "tv247",
+              "source": "arquerido TV247 current US mirrors",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=hd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://int.klcis.cc/api/m3u/USANetworkEast?quality=sd",
+              "family": "usair",
+              "source": "arquerido USAIR public redirect feeds",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error [Errno -2] Name or service not known>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            },
+            {
+              "url": "https://v5.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8",
+              "family": "thetvapp",
+              "source": "TheTVApp direct public HLS list",
+              "health_status": "cooldown",
+              "health_detail": "Dead source probe deferred by backoff; last failure: <urlopen error timed out>",
+              "http_status": null,
+              "stability_class": "Dead",
+              "next_probe_at": "2026-10-16T13:59:58Z"
+            }
+          ],
+          "primary_qa": []
+        }
+      ]
+    }
+  ]
+}

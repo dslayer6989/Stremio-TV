@@ -1,0 +1,84 @@
+{
+  "advisory_only": true,
+  "sources": [
+    {
+      "source": "iptv-org",
+      "provenance": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/us.m3u",
+      "bytes": 151474,
+      "target_label_rows": 31,
+      "exact_target_rows": 9,
+      "unsafe_omitted": 0,
+      "new_exact_urls": [
+        {
+          "tvg_id": "NationalGeographic.us@HDEast",
+          "name": "National Geographic HD East (720p)",
+          "url": "http://198.58.104.90:8989/natgeo/index.m3u8"
+        }
+      ],
+      "new_exact_provider_hosts": []
+    },
+    {
+      "source": "flossy",
+      "provenance": "https://raw.githubusercontent.com/flossy07/FlossyIPTV1/master/m3u8/USAIPTV.txt",
+      "bytes": 26430,
+      "target_label_rows": 4,
+      "exact_target_rows": 0,
+      "unsafe_omitted": 1,
+      "new_exact_urls": [],
+      "new_exact_provider_hosts": []
+    },
+    {
+      "source": "gogetta",
+      "provenance": "https://raw.githubusercontent.com/gogetta69/public-files/main/m3u_formatted.dat",
+      "bytes": 152029,
+      "target_label_rows": 21,
+      "exact_target_rows": 14,
+      "unsafe_omitted": 0,
+      "new_exact_urls": [
+        {
+          "tvg_id": "NationalGeographic.us",
+          "name": "National Geographic East",
+          "url": "http://fl2.moveonjoy.com/National_Geographic/index.m3u8"
+        },
+        {
+          "tvg_id": "History.us",
+          "name": "History",
+          "url": "https://thetvapp.to/tv/history-live-stream/"
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "name": "National Geographic",
+          "url": "https://thetvapp.to/tv/national-geographic-live-stream/"
+        },
+        {
+          "tvg_id": "History.us",
+          "name": "History",
+          "url": "https://dlhd.sx/stream/stream-322.php"
+        },
+        {
+          "tvg_id": "NationalGeographic.us",
+          "name": "National Geographic (NGC)",
+          "url": "https://dlhd.sx/stream/stream-328.php"
+        }
+      ],
+      "new_exact_provider_hosts": []
+    },
+    {
+      "source": "ceres",
+      "provenance": "https://raw.githubusercontent.com/CeresLabX/us-tv/main/playlist.m3u",
+      "bytes": 171193,
+      "target_label_rows": 11,
+      "exact_target_rows": 6,
+      "unsafe_omitted": 0,
+      "new_exact_urls": [
+        {
+          "tvg_id": "NationalGeographic.us@HDEast",
+          "name": "National Geographic (United States) HD East",
+          "url": "http://198.58.104.90:8989/natgeo/index.m3u8"
+        }
+      ],
+      "new_exact_provider_hosts": []
+    }
+  ],
+  "novel_qualified_origins": 0
+}

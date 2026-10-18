@@ -105,3 +105,34 @@ errors include HTTP status codes without publishing exception text or headers.
 
 The obsolete date-specific epg-pw mirror was removed after its daily filename
 expired; the same project's maintained `output/all_merged.m3u` stays configured.
+# Automatic provider discovery
+
+The post-build scrub now also searches public GitHub repositories for additional
+playlist catalogs (`--discover-providers`). It rotates six search queries and five
+result pages, inspects up to six unfamiliar repositories per run, and retains up
+to two M3U documents from each. Archived/private repositories, forks, configured
+repositories, oversized files and non-playlist code are excluded. Repository
+contents are parsed as data; no third-party programs are downloaded or executed.
+
+The trusted production scrub artifact retains discovered catalogs, inspected
+repository revisions and the search cursor. Upstream changes or seven days allow
+reinspection. Up to twelve retained catalogs rotate into the front of each scrub,
+before the configured sources, so target-based early stopping cannot always
+exclude the new catalogs. A failed search preserves retained catalogs, reports the
+failure, and still scans known lists. Missing prior artifacts are reported using
+the existing initial-inventory behavior, not claimed as fresh stream discoveries.
+
+Provider searching gets at most 120 seconds of the existing shared 600-second
+search/playlist budget; the scrub job retains its 20-minute timeout. Requests have
+bounded response sizes and timeouts. API rate/access failures stop discovery
+without blocking deployment. The two-hour schedule, 86-channel guard, protected
+channel identities and all playback/release gates are unchanged.
+
+The summary distinguishes repositories inspected, new **candidate playlist
+documents**, new distinct stream URLs, and new media hostnames. A repository or
+M3U file can contain mirrors, empty lists, foreign channels or player manifests;
+finding one is not proof of a new provider family or independent origin. Exact-ID,
+credential, quarantine and kill-switch filters still apply before media triage.
+Up to three eligible unseen candidates get the existing segment/decoder probes.
+Discovery never edits production configuration or approves a source. Burn-in,
+sustained playback, exact programming review and guarded staging remain required.

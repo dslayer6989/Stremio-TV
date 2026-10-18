@@ -17,6 +17,7 @@ import urllib.parse
 import zipfile
 
 import build
+import provider_discovery
 from release_readiness import GitHub, WORKFLOW, channel_key
 from research.fresh_origin_discovery import valid_public_url
 
@@ -261,6 +262,8 @@ def main():
     parser.add_argument("--out", type=Path, default=Path("scrub-results"))
     parser.add_argument("--probe-limit", type=int, default=3)
     parser.add_argument("--new-link-target", type=int, default=20)
+    parser.add_argument("--discover-providers", action="store_true",
+                        help="Search public GitHub projects for additional playlist catalogs")
     args = parser.parse_args()
     if not 1 <= args.new_link_target <= 500:
         parser.error("--new-link-target must be between 1 and 500")
@@ -284,16 +287,33 @@ def main():
     baseline = local_json("stream-health.json")
     channels = local_json("channels.json")
     additional = json.loads((ROOT / "research/playlist-scrub-sources.json").read_text())["sources"]
+    sources = configured_sources(config, additional)
+    search_started = time.monotonic()
+    discovery_state = previous.get("provider_discovery") or {}
+    discovery = {"status": "disabled"}
+    discovered = []
+    if args.discover_providers:
+        discovered, discovery_state, discovery = provider_discovery.discover(
+            previous, sources, dt.datetime.now(dt.timezone.utc))
+    # Search for providers and scan playlists share the existing ten-minute budget.
+    # New/rotating catalogs come first so a known-list target cannot starve discovery.
     results, search = scan_until_target(
-        config, roster, previous, baseline, configured_sources(config, additional),
-        dt.datetime.now(dt.timezone.utc), args.new_link_target)
+        config, roster, previous, baseline, discovered + sources,
+        dt.datetime.now(dt.timezone.utc), args.new_link_target,
+        seconds=max(0, 600 - (time.monotonic() - search_started)))
     report, seen = run(config, roster, previous, baseline, results, dt.datetime.now(dt.timezone.utc),
                        args.probe_limit, [r.get("tvg_id") for r in channels])
     report["summary"].update(search)
+    report["summary"]["scan_budget_seconds"] = 600
+    report["summary"].update(
+        provider_repositories_inspected=discovery.get("repositories_inspected", 0),
+        new_playlist_documents=discovery.get("new_playlist_documents", 0),
+        provider_discovery_errors=len(discovery.get("errors", [])))
+    report["provider_discovery"] = discovery
     report.update(previous_state=prior, current_build_baseline_available=bool(baseline))
     args.out.mkdir(parents=True, exist_ok=True)
     state = {"version": 1, "repository": args.repository, "run_id": os.environ.get("GITHUB_RUN_ID"),
-             "seen": seen}
+             "seen": seen, "provider_discovery": discovery_state}
     (args.out / STATE_FILE).write_text(json.dumps(state, separators=(",", ":")))
     (args.out / "playlist-scrub.json").write_text(json.dumps(report, indent=2))
     lines = ["## Playlist scrub (advisory)", "", f"Prior inventory: {prior['status']}.", "",

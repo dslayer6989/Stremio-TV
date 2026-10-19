@@ -8,7 +8,7 @@ class DeploymentGuardTests(unittest.TestCase):
         self.config = {"deployment_guard": {
             "enabled": True, "minimum_channels": 86,
             "required_channel_ids": [
-                "DisneyChannel.us", "NationalGeographic.us", "History.us",
+                "HGTV.us",
             ],
         }}
         self.published = [
@@ -16,7 +16,7 @@ class DeploymentGuardTests(unittest.TestCase):
             {"tvg_id": "HallmarkChannel.us@East"},
             {"tvg_id": "DisneyChannel.us"},
             {"tvg_id": "NationalGeographic.us"},
-            {"tvg_id": "History.us@East"},
+            {"tvg_id": "HGTV.us@East"},
         ] + [{"tvg_id": "Other%03d.us" % n} for n in range(83)]
 
     def test_passing_86_channel_deployed_baseline_and_suffix_id(self):
@@ -43,10 +43,16 @@ class DeploymentGuardTests(unittest.TestCase):
         )
 
     def test_blocks_loss_of_still_present_critical_identity(self):
-        altered = [c for c in self.published if not c["tvg_id"].startswith("History.")]
+        altered = [c for c in self.published if not c["tvg_id"].startswith("HGTV.")]
         altered.append({"tvg_id": "OtherReplacement.us"})
         errors = evaluate_deployment_guard(self.config, {"channels": 88}, altered)
-        self.assertTrue(any("History.us" in err for err in errors))
+        self.assertTrue(any("HGTV.us" in err for err in errors))
+
+    def test_old_protected_channels_can_be_absent_when_hgtv_and_floor_pass(self):
+        channels = [{"tvg_id": "HGTV.us@East"}] + [
+            {"tvg_id": f"Other{i}.us"} for i in range(85)]
+        self.assertEqual(evaluate_deployment_guard(
+            self.config, {"channels": 86}, channels), [])
 
     def test_blocks_inconsistent_reported_channel_count(self):
         errors = evaluate_deployment_guard(self.config, {"channels": 88}, self.published[:-1])

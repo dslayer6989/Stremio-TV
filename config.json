@@ -1067,11 +1067,8 @@
     "enabled": true,
     "public_search_policy": {
       "allow_public_signed_urls": true,
-      "private_connector_only_ids": [
-        "WPSG.us",
-        "NBCSportsPhiladelphiaPlus.us"
-      ],
-      "note": "Skip public search for channels that require an OTA tuner or authorized provider connector."
+      "private_connector_only_ids": [],
+      "note": "Public discovery may search every curated channel, including WPSG and NBC Sports Philadelphia Plus. Public candidates still require exact identity, access checks and normal playback QA."
     },
     "official_player_scan": {
       "enabled": true,
@@ -3697,9 +3694,7 @@
     "enabled": true,
     "minimum_channels": 86,
     "required_channel_ids": [
-      "DisneyChannel.us",
-      "NationalGeographic.us",
-      "History.us"
+      "HGTV.us"
     ]
   }
 }

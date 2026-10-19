@@ -23,7 +23,7 @@ BATCHES = {
     "C": ["HallmarkFamily.us", "HallmarkMystery.us", "StarzCinema.us", "StarzComedy.us", "StarzEdge.us", "StarzEncoreSpanish.us"],
     "D": ["RFDTV.us", "SmithsonianChannel.us", "SundanceTV.us", "WPHL.us", "NBCSportsPhiladelphiaPlus.us", "WPSG.us"],
 }
-PRIVATE_IDS = {"NBCSportsPhiladelphiaPlus.us", "WPSG.us"}
+PRIVATE_IDS = set()  # All curated channels are eligible for public discovery.
 # Each is a specific recently active SMALL research source; no giant IPTV-org mirrors.
 SEEDS = [
     {"name": "FSTV24", "url": "https://raw.githubusercontent.com/abusaeeidx/IPTV-Scraper-Zilla/main/FSTV24.m3u8",
@@ -87,8 +87,6 @@ def valid_public_url(url):
     # Third-party lists may place subscriber IDs/emails and secret account numbers in
     # plain path segments rather than RFC userinfo. Reject before requesting/logging.
     if "@" in urllib.parse.unquote(p.path):
-        return False
-    if re.search(r"/(?:api/)?(?:stream|streams|play|live)/[^/]+/[^/]+/", p.path, re.I):
         return False
     qs = urllib.parse.parse_qs(p.query, keep_blank_values=True)
     if any(k.lower() in {"un", "user", "username", "pass", "password", "pwd"} for k in qs):

@@ -6,6 +6,8 @@ from the original project. It changes values in config.json and aliases.json.
 import json
 from pathlib import Path
 
+import free_channels
+
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config.json"
 ALIASES = ROOT / "aliases.json"
@@ -115,10 +117,13 @@ def main() -> None:
         "Live TV with a program guide: national channels plus Altoona, PA area locals."
     )
 
-    CONFIG.write_text(json.dumps(config, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
     aliases = json.loads(ALIASES.read_text(encoding="utf-8"))
     aliases.setdefault("by_tvg_id", {}).update(EPG_ALIASES)
+
+    added = free_channels.add_free_channels(config, aliases)
+    print(f"Free channels added to the allow-list: {added}")
+
+    CONFIG.write_text(json.dumps(config, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ALIASES.write_text(json.dumps(aliases, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Localized for Altoona: {len(LOCAL_IDS)} local channel IDs")
 

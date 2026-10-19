@@ -136,3 +136,25 @@ credential, quarantine and kill-switch filters still apply before media triage.
 Up to three eligible unseen candidates get the existing segment/decoder probes.
 Discovery never edits production configuration or approves a source. Burn-in,
 sustained playback, exact programming review and guarded staging remain required.
+
+
+### Discovery eligibility and HGTV priority (2026-10-19)
+
+Public discovery now includes WPSG and NBC Sports Philadelphia Plus. Finding a
+candidate does not establish full-linear programming or playback. Private/OTA
+connectors remain available, but these channels no longer skip public searches.
+
+Research accepts public signed/session query URLs unchanged and does not reject
+DASH solely because its extension is `.mpd`. The scrub inspects DASH manifests:
+ContentProtection holds the candidate without decoding; clear DASH gets the normal
+bounded research decoder attempts. A pass remains advisory and cannot publish a
+stream or bypass production segment, burn-in, Primary, identity or access checks.
+Static signed links must still satisfy expiry checks. Account query credentials,
+email/userinfo paths, recognizable Xtream account paths, device MAC/serial links,
+quarantine and exact kill switches remain excluded. `/live/`, `/play/` and
+`/api/stream/` prefixes alone no longer establish embedded credentials.
+
+Deployment and release readiness retain the 86-channel floor and now require
+HGTV. Disney Channel, History and National Geographic remain curated channels,
+but no longer individually block deployment. Playback QA and the two-hour cron
+are unchanged.

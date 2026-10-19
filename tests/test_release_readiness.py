@@ -54,6 +54,12 @@ class ReleaseReadinessTests(unittest.TestCase):
                           'diagnostics/stream-health.json': health,
                           'diagnostics/logo-normalization.json': {}}}
 
+    def test_hgtv_guard_is_required_even_if_old_pins_are_present(self):
+        self.assertEqual(release.policy_errors(self.config), [])
+        self.config['deployment_guard']['required_channel_ids'] = [
+            'DisneyChannel.us', 'History.us', 'NationalGeographic.us']
+        self.assertIn('critical identity guard weakened', release.policy_errors(self.config))
+
     def report(self):
         return release.audit(self.runs, self.evidence, self.roster, 'main')
 

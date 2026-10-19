@@ -18,7 +18,7 @@ import urllib.request
 import zipfile
 
 WORKFLOW = '.github/workflows/build-and-deploy.yml'
-REQUIRED = ('DisneyChannel.us', 'NationalGeographic.us', 'History.us')
+REQUIRED = ('HGTV.us',)
 # Quality and national/East variants only. Keep affiliate suffixes and reject West.
 VARIANTS = {'sd', 'hd', 'fhd', 'uhd', '4k', '720p', '1080p', '1440p',
             '2160p', 'east', 'easthd', 'hdeast', 'east4k', 'us', 'national', 'feed'}

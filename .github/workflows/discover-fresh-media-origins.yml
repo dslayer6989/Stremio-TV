@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   discover-four-batches:
+    if: github.event_name == 'workflow_dispatch'
     name: Fresh media origins batch ${{ matrix.batch }}
     runs-on: ubuntu-latest
     timeout-minutes: 12

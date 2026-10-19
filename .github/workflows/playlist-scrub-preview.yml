@@ -34,6 +34,7 @@ jobs:
           python assemble_build.py
           python -m unittest discover -s tests -q
       - name: Run live read-only scrub
+        if: github.event_name == 'workflow_dispatch'
         run: python playlist_scrub.py --discover-providers --new-link-target 20 --probe-limit 3
         env:
           GITHUB_TOKEN: ${{ github.token }}

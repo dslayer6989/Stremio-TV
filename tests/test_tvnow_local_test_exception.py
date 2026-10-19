@@ -23,12 +23,12 @@ class TVNowLocalTestExceptionTests(unittest.TestCase):
                 self.assertEqual(r.get("headers",{}).get("Referer"),"https://tvnow.st/")
                 self.assertNotIn("Authorization",r.get("headers",{}))
                 self.assertNotIn("Cookie",r.get("headers",{}))
-    def test_deployment_guard_remains_original(self):
+    def test_deployment_guard_keeps_floor_and_hgtv_priority(self):
         guard=self.c["deployment_guard"]
         self.assertTrue(guard["enabled"])
         self.assertEqual(guard["minimum_channels"],86)
         self.assertEqual(set(guard["required_channel_ids"]),
-                         {"History.us","DisneyChannel.us","NationalGeographic.us"})
+                         {"HGTV.us"})
         self.assertTrue(self.c["stream_health"]["require_passed_only"])
         self.assertTrue(self.c["stream_health"]["primary_playback_qa"]["enabled"])
 

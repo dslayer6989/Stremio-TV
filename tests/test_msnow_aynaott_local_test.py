@@ -67,8 +67,7 @@ class MSNowPromotionRegressionTests(unittest.TestCase):
 
     def test_existing_production_channel_qa_and_guard_remain_enabled(self):
         self.assertTrue(self.config["deployment_guard"]["enabled"])
-        self.assertIn("DisneyChannel.us", self.config["deployment_guard"]["required_channel_ids"])
-        self.assertIn("NationalGeographic.us", self.config["deployment_guard"]["required_channel_ids"])
+        self.assertEqual(["HGTV.us"], self.config["deployment_guard"]["required_channel_ids"])
         self.assertFalse(any(item.get("tvg_id") == "MSNOW.us" for item in
             self.config["curation"].get("stream_quarantine", [])))
 

@@ -14,6 +14,8 @@ from pathlib import Path
 import re
 import time
 import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
 import zipfile
 
 import build
@@ -47,7 +49,7 @@ def safe_entry(entry, config, now):
         parts = urllib.parse.urlsplit(url)
         path = [p for p in parts.path.split("/") if p]
         query = {k.lower(): v for k, v in urllib.parse.parse_qsl(parts.query)}
-        if any(k in query for k in ("mac", "stb_mac", "serial", "serial_number", "sessionid")):
+        if any(k in query for k in ("mac", "stb_mac", "serial", "serial_number")):
             return False
         if len(path) == 3 and path[0].isdigit() and path[1].isdigit() and path[-1].split(".")[0].isdigit():
             return False
@@ -179,6 +181,51 @@ def inventory(config, roster_ids, previous, baseline, source_results, now):
     return rows, seen, rejected
 
 
+def probe_research_candidate(entry, config):
+    """Allow clear DASH into bounded decoder triage; never approve production.
+
+    Public token/session query names do not establish account ownership. Keep
+    their exact values unchanged. Protected DASH is held for review, not decoded.
+    """
+    settings = config["stream_health"]["direct_media_survival"]
+    if not urllib.parse.urlsplit(entry["url"]).path.lower().endswith(".mpd"):
+        health = build._probe_stream(entry, timeout=6, verify_segment=True)
+        decoder = (build._validate_direct_media_survival(entry, settings)
+                   if health.get("status") == "ok" else {"status": "not-tested"})
+        return health, decoder
+    try:
+        if not valid_public_url(entry["url"]):
+            raise ValueError("non-public URL")
+        request = urllib.request.Request(entry["url"], headers={
+            "User-Agent": build.USER_AGENT, **entry.get("headers", {})})
+        with urllib.request.build_opener(DashPublicRedirectOnly).open(request, timeout=6) as response:
+            if not valid_public_url(response.geturl()):
+                raise ValueError("non-public redirect")
+            data = response.read(1_000_001)
+        if len(data) > 1_000_000:
+            raise ValueError("manifest too large")
+        manifest = ET.fromstring(data)
+        if manifest.tag.rsplit("}", 1)[-1] != "MPD":
+            raise ValueError("not an MPD")
+        if any(node.tag.rsplit("}", 1)[-1] == "ContentProtection" for node in manifest.iter()):
+            return ({"status": "failed", "detail": "Protected DASH held for review"},
+                    {"status": "not-tested"})
+        decoder = build._validate_direct_media_survival(entry, settings)
+        health = {"status": "ok" if decoder.get("status") == "ok" else "failed",
+                  "detail": "Clear DASH research decoder " + str(decoder.get("status"))}
+        return health, decoder
+    except Exception as exc:
+        return ({"status": "failed", "detail": "DASH manifest check failed: " + type(exc).__name__},
+                {"status": "not-tested"})
+
+
+class DashPublicRedirectOnly(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not valid_public_url(newurl):
+            raise ValueError("non-public DASH redirect")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 def triage(rows, config, limit, published_ids):
     """Bounded research probes, not burn-in, promotion or release-qualified coverage."""
     queue = [r for r in rows if r.get("needs_probe") and not r.get("probe")]
@@ -187,10 +234,7 @@ def triage(rows, config, limit, published_ids):
     tested = 0
     for row in queue[:max(0, min(limit, 3))]:
         entry = {"url": row["url"], "headers": row["headers"]}
-        health = build._probe_stream(entry, timeout=6, verify_segment=True)
-        decoder = (build._validate_direct_media_survival(
-            entry, config["stream_health"]["direct_media_survival"])
-            if health.get("status") == "ok" else {"status": "not-tested"})
+        health, decoder = probe_research_candidate(entry, config)
         row["probe"] = {"tested_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                         "health": health, "decoder": decoder,
                         "production_approved": False, "burn_in_completed": False,

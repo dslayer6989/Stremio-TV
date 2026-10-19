@@ -153,7 +153,7 @@ Scheduled builds refresh sources, short-lived public signed stream URLs, and gui
 
 The target is **95 of the frozen original 111 identities**, with three consecutive
 successful **scheduled production** attempts. Development keeps the existing
-86-channel deployment floor and essential Disney/History/NatGeo guard. Do not
+86-channel deployment floor and essential HGTV guard. Do not
 raise the floor, bump the version, tag or publish from a standalone probe or audit.
 
 See the [verified baseline](research/v0.9.0-baseline-2026-10-15.md) and

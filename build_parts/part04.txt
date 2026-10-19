@@ -1194,9 +1194,10 @@ def _is_clean_github_media_url(
     segments = [urllib.parse.unquote(part) for part in parsed.path.split("/") if part]
     if any(re.search(r"^[^/@\s]+@[^/@\s]+\.[^/@\s]+$", part) for part in segments):
         return False
-    if len(segments) >= 4 and segments[0].lower() in {"live", "movie", "series"}:
-        return False
-    if len(segments) >= 4 and [part.lower() for part in segments[:2]] == ["api", "stream"]:
+    # A /live/ or /api/stream/ prefix alone is not evidence of an account.
+    # Retain the recognizable Xtream user/password/numeric-ID layout.
+    if (len(segments) == 4 and segments[0].lower() in {"live", "movie", "series"}
+            and segments[-1].split(".")[0].isdigit()):
         return False
 
     # Static GitHub playlists frequently copy short-lived signed player URLs.

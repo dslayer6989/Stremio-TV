@@ -1,0 +1,42 @@
+name: Check guide freshness
+
+# Fails (so GitHub emails the repo owner) when the live addon has stopped
+# updating or its program guide no longer covers today. Added after builds
+# silently failed for days and every channel's guide expired.
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compare the live addon with the clock
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt, json, os, sys, urllib.request
+          owner, repo = os.environ["GITHUB_REPOSITORY"].split("/")
+          url = f"https://{owner.lower()}.github.io/{repo}/status.json"
+          with urllib.request.urlopen(url, timeout=60) as response:
+              status = json.load(response)
+          now = dt.datetime.now(dt.timezone.utc)
+          built = dt.datetime.fromisoformat(status["built_at"].replace("Z", "+00:00"))
+          age_hours = (now - built).total_seconds() / 3600
+          today = now.date().isoformat()
+          dates = status.get("epg_dates", [])
+          print(f"Live build: {status['built_at']} ({age_hours:.1f} h old), channels={status.get('channels')}")
+          print(f"Guide dates: {dates}; today (UTC) = {today}")
+          problems = []
+          if age_hours > 12:
+              problems.append(f"live addon was last built {age_hours:.0f} hours ago (builds should run every 2 hours)")
+          if today not in dates:
+              problems.append(f"program guide does not cover today ({today})")
+          for problem in problems:
+              print(f"ERROR: {problem}", file=sys.stderr)
+          sys.exit(1 if problems else 0)
+          PY

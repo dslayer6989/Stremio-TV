@@ -45,6 +45,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
         run: |
-          for wf in build-and-deploy.yml keep-updated.yml; do
+          for wf in build-and-deploy.yml keep-updated.yml guide-freshness.yml; do
             gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/enable"
           done

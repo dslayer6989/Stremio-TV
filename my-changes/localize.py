@@ -81,8 +81,18 @@ def remove_upstream_release_gate() -> None:
             print(f"Removed {name} (Philadelphia-only release audit)")
 
 
+def install_guide_freshness_check() -> None:
+    """Put the watchdog workflow in place (the sync wipes everything outside my-changes)."""
+    source = ROOT / "my-changes" / "guide-freshness.yml"
+    target = ROOT / ".github" / "workflows" / "guide-freshness.yml"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
+    print("Installed .github/workflows/guide-freshness.yml")
+
+
 def main() -> None:
     remove_upstream_release_gate()
+    install_guide_freshness_check()
 
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
 

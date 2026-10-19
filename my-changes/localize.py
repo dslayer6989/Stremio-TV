@@ -1,12 +1,14 @@
 """Switch Stremio TV's local channels from Philadelphia to the Altoona, PA area.
 
 Runs automatically from .github/workflows/keep-updated.yml after every update
-from the original project. It only changes values in config.json.
+from the original project. It changes values in config.json and aliases.json.
 """
 import json
 from pathlib import Path
 
-CONFIG = Path(__file__).resolve().parent.parent / "config.json"
+ROOT = Path(__file__).resolve().parent.parent
+CONFIG = ROOT / "config.json"
+ALIASES = ROOT / "aliases.json"
 
 # Johnstown-Altoona-State College stations first, then nearby stations that
 # currently have free public streams (they fill the CBS gap).
@@ -20,6 +22,8 @@ LOCAL_IDS = [
     "MNT.us@WHVLLD",         # MyNetworkTV, State College
     "WJAC.us", "WTAJ.us", "WATM.us", "WWCP.us", "WPSU.us",
     "WHPDT1.us",             # CBS 21 WHP, Harrisburg (nearby)
+    "NBC.us@WPXI",           # NBC WPXI, Pittsburgh (nearby, has a free stream)
+    "NBC.us@WGAL",           # NBC WGAL, Lancaster/Harrisburg (nearby, has a free stream)
     "CBSNewsPittsburgh.us",  # CBS News Pittsburgh 24/7 (nearby)
 ]
 
@@ -36,6 +40,25 @@ NAMES = {
     "PBS.us@WPSUTV": "WPSU PBS",
     "WHPDT1.us": "CBS 21 / WHP (Harrisburg)",
     "CBSNewsPittsburgh.us": "CBS News Pittsburgh",
+    "NBC.us@WPXI": "NBC 11 / WPXI (Pittsburgh)",
+    "NBC.us@WGAL": "NBC 8 / WGAL (Lancaster)",
+}
+
+# Guide (XMLTV) IDs for the local stations. The guide has all of these, but the
+# automatic matching can't tell "NBC.us@WJACTV" from the guide's "WJAC-DT.us_locals1".
+EPG_ALIASES = {
+    "NBC.us@WJACTV": "WJAC-DT.us_locals1",
+    "WJAC.us": "WJAC-DT.us_locals1",
+    "CBS.us@WTAJTV": "WTAJ-DT.us_locals1",
+    "WTAJ.us": "WTAJ-DT.us_locals1",
+    "ABC.us@WATMTV": "WATM-DT.us_locals1",
+    "WATM.us": "WATM-DT.us_locals1",
+    "Fox.us@WWCPTV": "WWCP-DT.us_locals1",
+    "WWCP.us": "WWCP-DT.us_locals1",
+    "MNT.us@WHVLLD": "WHVL-LD.us_locals1",
+    "WHPDT1.us": "WHP-DT.us_locals1",
+    "NBC.us@WPXI": "WPXI-DT.us_locals1",
+    "NBC.us@WGAL": "WGAL-DT.us_locals1",
 }
 
 
@@ -74,6 +97,10 @@ def main() -> None:
     )
 
     CONFIG.write_text(json.dumps(config, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    aliases = json.loads(ALIASES.read_text(encoding="utf-8"))
+    aliases.setdefault("by_tvg_id", {}).update(EPG_ALIASES)
+    ALIASES.write_text(json.dumps(aliases, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Localized for Altoona: {len(LOCAL_IDS)} local channel IDs")
 
 

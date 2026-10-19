@@ -25,7 +25,19 @@
     "History.us": "History.HD.us2",
     "History.us@East": "History.HD.us2",
     "MTV.us@East": "MTV.-.Music.Television.HD.us2",
-    "TurnerClassicMovies.us": "Turner.Classic.Movies.HD.us2"
+    "TurnerClassicMovies.us": "Turner.Classic.Movies.HD.us2",
+    "NBC.us@WJACTV": "WJAC-DT.us_locals1",
+    "WJAC.us": "WJAC-DT.us_locals1",
+    "CBS.us@WTAJTV": "WTAJ-DT.us_locals1",
+    "WTAJ.us": "WTAJ-DT.us_locals1",
+    "ABC.us@WATMTV": "WATM-DT.us_locals1",
+    "WATM.us": "WATM-DT.us_locals1",
+    "Fox.us@WWCPTV": "WWCP-DT.us_locals1",
+    "WWCP.us": "WWCP-DT.us_locals1",
+    "MNT.us@WHVLLD": "WHVL-LD.us_locals1",
+    "WHPDT1.us": "WHP-DT.us_locals1",
+    "NBC.us@WPXI": "WPXI-DT.us_locals1",
+    "NBC.us@WGAL": "WGAL-DT.us_locals1"
   },
   "by_name": {},
   "unavailable_by_tvg_id": {

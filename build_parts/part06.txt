@@ -3,10 +3,19 @@
                         continue
                 else:
                     playlist_path = temp_dir / f"playlist-{idx}.m3u"
-                    download(src["url"], playlist_path)
+                    if src.get("format") == "fsl-public-player":
+                        request = urllib.request.Request(src["url"], headers={
+                            "User-Agent": "Mozilla/5.0", "Referer": "https://wikisport.info/",
+                            "Accept-Encoding": "identity",
+                        })
+                        with urllib.request.urlopen(request, timeout=20) as response:
+                            playlist_path.write_bytes(response.read(1_000_000))
+                    else:
+                        download(src["url"], playlist_path)
 
                 text = playlist_path.read_text(encoding="utf-8", errors="replace")
-                parsed = parse_m3u(text, src)
+                parsed = (_parse_fsl_public_player(text, src)
+                          if src.get("format") == "fsl-public-player" else parse_m3u(text, src))
                 result["streams"] = len(parsed)
                 result["status"] = "ok"
                 log(f"Parsed {len(parsed):,} streams from {src['name']}")

@@ -502,6 +502,60 @@ def _parse_aria_markdown(text: str, source: dict[str, Any]) -> tuple[list[dict[s
     return entries, scanned
 
 
+def _parse_fsl_public_player(text: str, source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Read literal public player URLs without executing scripts or altering signatures."""
+    channels = {
+        "CBSSportsNetwork.us": ("F128", "CBS Sports Network"),
+        "USANetwork.us": ("F191", "USA Network"),
+        "ESPN.us": ("F111", "ESPN"),
+        "ESPN2.us": ("F122", "ESPN2"),
+        "ESPNU.us": ("F186", "ESPNU"),
+    }
+    channel = str(source.get("tvg_id") or "")
+    if channel not in channels:
+        return []
+    stream_id, name = channels[channel]
+    page_url = "https://xstream.st/fslivepro.php?stream=" + stream_id
+    if source.get("url") != page_url:
+        return []
+    match = re.search(r"const\s+streamUrls\s*=\s*(\[.*?\]);", text)
+    if not match:
+        return []
+    try:
+        urls = json.loads(match.group(1))
+    except (ValueError, TypeError):
+        return []
+    if not isinstance(urls, list):
+        return []
+    entries = []
+    for url in urls[:3]:
+        if not isinstance(url, str):
+            continue
+        try:
+            media = urllib.parse.urlsplit(url)
+            query = urllib.parse.parse_qs(media.query, strict_parsing=True)
+            expiry = int(query.get("e", ["0"])[0])
+            valid = (media.scheme == "https" and media.hostname in
+                     {"instreams.pro", "instreams.live", "instreams.xyz"}
+                     and media.port is None and not media.username and not media.password
+                     and not media.fragment and media.path == "/live3/" + stream_id + "/index.m3u8"
+                     and set(query) == {"st", "e"} and all(len(v) == 1 for v in query.values())
+                     and bool(re.fullmatch(r"[A-Za-z0-9_-]{16,128}", query["st"][0]))
+                     and expiry >= int(dt.datetime.now(UTC).timestamp()) + 10680)
+        except (ValueError, TypeError, IndexError):
+            continue
+        if not valid:
+            continue
+        entries.append({"tvg_id": channel, "name": name, "name_raw": name,
+                        "url": url, "headers": {"User-Agent": "Mozilla/5.0", "Referer": page_url},
+                        "family": "fsl-public-player", "source": "FSL public player",
+                        "source_type": "public-third-party-player", "country": "US", "language": "English",
+                        "group": "Sports" if channel not in {"USANetwork.us"} else "Entertainment",
+                        "priority": int(source.get("priority", 10)),
+                        "provenance": {"page_url": page_url, "expires_at": expiry}})
+    return entries
+
+
 def discover_targeted_source_families(
     config: dict[str, Any],
     existing_entries: list[dict[str, Any]],

@@ -224,6 +224,56 @@
         "priority": 13,
         "required": false,
         "fixture": "buddy-samsung-us.m3u"
+      },
+      {
+        "name": "FSL public CBSSportsNetwork.us",
+        "family": "fsl-public-player",
+        "format": "fsl-public-player",
+        "tvg_id": "CBSSportsNetwork.us",
+        "url": "https://xstream.st/fslivepro.php?stream=F128",
+        "priority": 10,
+        "required": false,
+        "philly": false
+      },
+      {
+        "name": "FSL public USANetwork.us",
+        "family": "fsl-public-player",
+        "format": "fsl-public-player",
+        "tvg_id": "USANetwork.us",
+        "url": "https://xstream.st/fslivepro.php?stream=F191",
+        "priority": 10,
+        "required": false,
+        "philly": false
+      },
+      {
+        "name": "FSL public ESPN.us",
+        "family": "fsl-public-player",
+        "format": "fsl-public-player",
+        "tvg_id": "ESPN.us",
+        "url": "https://xstream.st/fslivepro.php?stream=F111",
+        "priority": 10,
+        "required": false,
+        "philly": false
+      },
+      {
+        "name": "FSL public ESPN2.us",
+        "family": "fsl-public-player",
+        "format": "fsl-public-player",
+        "tvg_id": "ESPN2.us",
+        "url": "https://xstream.st/fslivepro.php?stream=F122",
+        "priority": 10,
+        "required": false,
+        "philly": false
+      },
+      {
+        "name": "FSL public ESPNU.us",
+        "family": "fsl-public-player",
+        "format": "fsl-public-player",
+        "tvg_id": "ESPNU.us",
+        "url": "https://xstream.st/fslivepro.php?stream=F186",
+        "priority": 10,
+        "required": false,
+        "philly": false
       }
     ],
     "epg": "https://vcicio.github.io/US-EPG/merged_epg.xml.gz"
@@ -253,7 +303,7 @@
   "catalogs": [
     {
       "id": "favorites",
-      "name": "★ Favorites",
+      "name": "\u2605 Favorites",
       "category": "Favorites"
     },
     {
@@ -3626,7 +3676,7 @@
   "local_test_catalog": {
     "enabled": true,
     "id": "local-test",
-    "name": "🧪 Local Test — Missing Channel Recovery",
+    "name": "\ud83e\uddea Local Test \u2014 Missing Channel Recovery",
     "max_streams_per_channel": 3,
     "target_ids": [
       "BET.us",

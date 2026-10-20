@@ -1109,12 +1109,17 @@ class TargetedScannerTests(unittest.TestCase):
                 return json.dumps({"pushed_at": "2026-09-20T00:00:00Z"}), url
             return playlist, url
 
-        with mock.patch.object(build, "_fetch_public_text", side_effect=fetch):
+        # Keep the repository fixture one day old regardless of the wall clock.
+        fixed_now = build.dt.datetime(2026, 9, 21, tzinfo=build.UTC)
+        with mock.patch.object(build.dt, "datetime", wraps=build.dt.datetime) as clock, \
+                mock.patch.object(build, "_fetch_public_text", side_effect=fetch):
+            clock.now.return_value = fixed_now
             entries, rows = build.discover_github_candidates(config, ["FXX.us"])
 
         self.assertEqual(len(entries), 1)
         file_row = next(row for row in rows if row["kind"] == "github-candidate-search")["files"][0]
         self.assertEqual(file_row["freshness"]["label"], "fresh")
+        self.assertEqual(file_row["freshness"]["age_days"], 1.0)
         self.assertEqual(file_row["freshness"]["updated_at"], "2026-09-20T00:00:00Z")
 
     def test_github_search_rejects_embedded_provider_credentials(self):

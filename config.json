@@ -1427,6 +1427,15 @@
           "priority": 10,
           "philly": false,
           "content_note": "Public sports relay index providing independent CBS Sports/FS2/MLB candidates; exact IDs only and no credential-shaped URLs accepted."
+        },
+        {
+          "name": "NewsLive public CNBC player",
+          "url": "https://www.newslive.com/business/cnbc-live-free.html",
+          "format": "public-player-page",
+          "tvg_id": "CNBC.us",
+          "family": "newslive-public-player",
+          "priority": 10,
+          "max_candidates_per_target": 1
         }
       ],
       "hunt_unstable_channels": true,

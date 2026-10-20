@@ -145,6 +145,7 @@ def _short_source_name(stream: dict[str, Any]) -> str:
         "github-playlist": "GitHub Playlist",
         "iptv-org-issue": "IPTV-org New",
         "official-page": "Official",
+        "newslive-public-player": "NewsLive",
         "research-seed": "Research Lead",
         "manual": "Manual",
     }
@@ -502,6 +503,40 @@ def _parse_aria_markdown(text: str, source: dict[str, Any]) -> tuple[list[dict[s
     return entries, scanned
 
 
+def _parse_public_player_page(text: str, source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Read an explicitly configured public player's URL; never execute page code."""
+    # This narrow adapter matches the ordinary NewsLive player. Signed URL values
+    # are used verbatim, never synthesized or altered. No credentials are supplied.
+    page = urllib.parse.urlsplit(str(source.get("url") or ""))
+    if page.scheme != "https" or page.hostname != "www.newslive.com":
+        return []
+    if source.get("tvg_id") != "CNBC.us" or page.path != "/business/cnbc-live-free.html":
+        return []
+    match = re.search(r'const\s+streamURL\s*=\s*("(?:\\.|[^"\\])*")\s*;', text)
+    if not match:
+        return []
+    try:
+        url = json.loads(match.group(1))
+        media = urllib.parse.urlsplit(url)
+        media_port = media.port
+        expiry = int(dict(urllib.parse.parse_qsl(media.query)).get("expires", "0"))
+    except (ValueError, TypeError):
+        return []
+    if (media.scheme != "https" or media.hostname != "stream.livenewsplay.com" or media_port != 9555
+            or media.path != "/hls/cnbcsd/index.m3u8" or media.username or media.password
+            or expiry < int(dt.datetime.now(UTC).timestamp()) + 10800):
+        return []
+    if not _is_clean_github_media_url(url, allow_public_signed_urls=True):
+        return []
+    return [{"tvg_id": "CNBC.us", "name": "CNBC", "name_raw": "CNBC",
+             "url": url, "headers": {"User-Agent": "Mozilla/5.0",
+                 "Referer": source["url"], "Origin": "https://www.newslive.com"},
+             "family": "newslive-public-player", "source": "NewsLive public player",
+             "source_type": "public-third-party-player", "country": "US", "language": "English",
+             "group": "News", "priority": int(source.get("priority", 10)),
+             "provenance": {"page_url": source["url"], "expires_at": expiry}}]
+
+
 def _parse_fsl_public_player(text: str, source: dict[str, Any]) -> list[dict[str, Any]]:
     """Read literal public player URLs without executing scripts or altering signatures."""
     channels = {
@@ -607,7 +642,10 @@ def discover_targeted_source_families(
                 byte_limit=int(source.get("byte_limit", byte_limit)),
             )
             source_info = dict(source)
-            if fmt == "aria-markdown":
+            if fmt == "public-player-page":
+                parsed = _parse_public_player_page(text, source_info)
+                scanned = len(parsed)
+            elif fmt == "aria-markdown":
                 parsed, scanned = _parse_aria_markdown(text, source_info)
             else:
                 parsed = parse_m3u(text, source_info)

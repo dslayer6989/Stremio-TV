@@ -109,13 +109,26 @@ def build_program_index(
     return schedules, all_dates
 
 
+def live_video_id(channel: dict[str, Any]) -> str:
+    """Keep episode navigation distinct from the parent channel detail page."""
+    return f"{channel['id']}:0:0"
+
+
+def write_channel_stream_resources(
+    base_dir: Path, channel: dict[str, Any], payload: dict[str, Any],
+) -> None:
+    """Native guide and legacy live episode resolve to identical feed options."""
+    for video_id in (channel["id"], live_video_id(channel)):
+        write_json(base_dir / "stream" / "tv" / f"{video_id}.json", payload)
+
+
 def channel_preview(channel: dict[str, Any]) -> dict[str, Any]:
     meta: dict[str, Any] = {
         "id": channel["id"],
         "type": "tv",
         "name": channel["name"],
         "posterShape": "square",
-        "behaviorHints": {"isLive": True, "defaultVideoId": channel["id"]},
+        "behaviorHints": {"isLive": True},
     }
     if channel.get("logo"):
         meta["poster"] = channel["logo"]
@@ -5781,7 +5794,7 @@ def channel_meta(
         "description": description,
         "genres": [category],
         "posterShape": "square",
-        "behaviorHints": {"isLive": True, "defaultVideoId": channel["id"]},
+        "behaviorHints": {"isLive": True},
         "stremioTvDiagnostics": {
             "epg_status": channel.get(
                 "epg_status",
@@ -5803,11 +5816,11 @@ def channel_meta(
     if live_fallback:
         # Older clients can render timed EPG entries as ordinary episodes and
         # never request the channel stream. Give detail views an explicit live
-        # video using the existing channel endpoint, not a programme ID. Keep
+        # video with a distinct episode ID and its own stream endpoint. Keep
         # it untimed and out of date-filtered EPG catalogs (no fake programme,
         # catch-up, inline streams, or changes to scheduled programme metadata).
         meta["videos"] = [{
-            "id": channel["id"],
+            "id": live_video_id(channel),
             "title": "Watch live",
             "season": 0,
             "episode": 0,

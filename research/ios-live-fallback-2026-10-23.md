@@ -8,15 +8,17 @@ We do not have a device request trace, so the exact client failure is unproven.
 
 ## Change
 
-- Channel catalog previews and metadata advertise `defaultVideoId` equal to
-  the existing channel ID, never a programme ID.
+- Channel catalog previews and metadata omit `defaultVideoId` so clients open
+  channel details without an automatic redirect back to the same identity.
 - Channel detail metadata includes an explicit, untimed `Watch live` video
-  using that same ID. Its historical `released` value avoids an Upcoming gate;
+  using a distinct `{channelId}:0:0` ID. Its historical `released` value avoids an Upcoming gate;
   it describes live playback, not an actual historical broadcast.
 - Following a failed device test of the untimed entry, the live video explicitly
   declares `season: 0` and `episode: 0` for clients requiring series coordinates.
-  This single fallback retains the channel ID and existing live stream resource;
-  the timed guide programmes keep their original metadata.
+  The builder publishes both `/stream/tv/{channelId}.json` and
+  `/stream/tv/{channelId}:0:0.json` with identical feed options, headers, ordering,
+  cache hints and build identity. Both production and local-test channels use
+  the same resource writer. Timed guide programmes keep their original metadata.
 - Date-filtered EPG catalogs retain only their original timed programmes.
   Detail metadata retains the timed programmes and native scheduling hint.
 - No inline video streams, programme-ID aliases, catch-up claims, alternate
@@ -25,11 +27,22 @@ We do not have a device request trace, so the exact client failure is unproven.
 This is a persistent compatibility path, not automatic detection of a failed
 player: static GitHub Pages cannot inspect a client version or playback result.
 Native guide clients continue using the channel stream resource. Legacy clients
-can route directly to that resource or select Watch live in channel details.
+select Watch live in channel details using the distinct episode stream resource.
+
+## October 27 device evidence
+
+The user confirmed the Season 0/Episode 0 entry is visible on FOX 29. Tapping it
+briefly animates/loading appears, then returns to the same details screen.
+The previous implementation reused the parent ID for the live video and set
+that same ID as `defaultVideoId`. This suggests navigation re-entry, but the
+screenshots do not establish the exact request sequence or prove the cause.
+The distinct episode ID and removal of the automatic redirect address that
+ambiguity. Actual device validation remains required after publication.
 
 ## Validation and limitations
 
-Focused tests cover channel/default-video identity, explicit available live
+Focused tests cover distinct channel/video identity without an auto redirect,
+generated episode resource lookup and exact payload parity, explicit available live
 entry, unchanged future/timed programmes and date-filtered guide behavior,
 input immutability, and channels without EPG or artwork. Existing native EPG
 generated-output tests remain applicable. Normal PR validation must pass the

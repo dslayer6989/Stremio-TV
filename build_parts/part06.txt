@@ -273,8 +273,8 @@
                 cached_resource({"meta": meta}),
             )
             streams = [stream_object(s, i + 1, build_info) for i, s in enumerate(ch["streams"])]
-            write_json(
-                output / "stream" / "tv" / f"{ch['id']}.json",
+            write_channel_stream_resources(
+                output, ch,
                 {
                     "streams": streams,
                     "stremioTvBuild": build_info,
@@ -300,8 +300,8 @@
                 stream_object(stream, index + 1, build_info)
                 for index, stream in enumerate(ch.get("streams") or [])
             ]
-            write_json(
-                output / "stream" / "tv" / f"{ch['id']}.json",
+            write_channel_stream_resources(
+                output, ch,
                 {
                     "streams": streams,
                     "stremioTvBuild": build_info,

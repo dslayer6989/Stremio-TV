@@ -1,5 +1,9 @@
 import copy
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from urllib.parse import quote, unquote
 
 import build
 
@@ -18,13 +22,35 @@ class LivePlaybackFallbackTests(unittest.TestCase):
             "endTime": "2099-01-01T13:00:00Z",
         }]
 
-    def test_catalog_and_detail_default_to_existing_channel_stream_id(self):
+    def test_live_navigation_is_distinct_from_parent_without_auto_redirect(self):
         preview = build.channel_preview(self.channel)
         detail = build.channel_meta(self.channel, self.programmes, live_fallback=True)
         for meta in (preview, detail):
-            self.assertEqual(meta["behaviorHints"]["defaultVideoId"], self.channel["id"])
+            self.assertNotIn("defaultVideoId", meta["behaviorHints"])
             self.assertTrue(meta["behaviorHints"]["isLive"])
-        self.assertEqual(detail["videos"][0]["id"], self.channel["id"])
+        self.assertEqual(detail["videos"][0]["id"], "stremiotv_test:0:0")
+        self.assertNotEqual(detail["videos"][0]["id"], detail["id"])
+
+    def test_generated_episode_route_serves_same_options_as_native_channel(self):
+        detail = build.channel_meta(self.channel, self.programmes, live_fallback=True)
+        payload = {
+            "streams": [{"url": "https://example.test/live.m3u8", "name": "Primary",
+                         "behaviorHints": {"notWebReady": True, "proxyHeaders": {
+                             "request": {"Referer": "https://example.test/player"}}}},
+                        {"url": "https://backup.test/live.m3u8", "name": "Backup 1"}],
+            "stremioTvBuild": {"build_id": "test"}, "cacheMaxAge": 300,
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            build.write_channel_stream_resources(root, self.channel, payload)
+            # Client links percent-encode ':'; the decoded static resource path
+            # must exist for the ID actually selected from channel metadata.
+            selected = unquote(quote(detail["videos"][0]["id"], safe=""))
+            episode = json.loads((root / "stream" / "tv" / f"{selected}.json").read_text())
+            native = json.loads((root / "stream" / "tv" / f"{detail['id']}.json").read_text())
+            self.assertEqual(episode, payload)
+            self.assertEqual(native, episode)
+            self.assertEqual(len(list((root / "stream" / "tv").iterdir())), 2)
 
     def test_live_entry_is_available_without_claiming_a_scheduled_programme(self):
         detail = build.channel_meta(self.channel, self.programmes, live_fallback=True)

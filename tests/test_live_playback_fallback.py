@@ -81,12 +81,17 @@ class LivePlaybackFallbackTests(unittest.TestCase):
             live = detail["meta"]["videos"][0]
             # A client that consumes inline streams needs no second HTTP lookup.
             self.assertEqual(live["streams"], payload["streams"])
-            self.assertEqual(detail["meta"]["videos"][1:], self.programmes)
+            self.assertEqual(detail["meta"]["videos"][2:], self.programmes)
             self.assertTrue(detail["meta"]["behaviorHints"]["hasScheduledVideos"])
             for video_id in (self.channel["id"], live["id"]):
                 route = json.loads((root / "stream/tv" / f"{video_id}.json").read_text())
                 self.assertEqual(route, payload)
                 self.assertEqual(live["streams"], route["streams"])
+            # A live client may select the parent channel, not the episode ID.
+            # Resolve inline streams using the same ID match as Stremio core.
+            for selected_id in (self.channel["id"], live["id"]):
+                selected = next(v for v in detail["meta"]["videos"] if v["id"] == selected_id)
+                self.assertEqual(selected["streams"], payload["streams"])
         self.assertEqual((self.channel, self.programmes, payload), original)
 
     def test_empty_options_do_not_publish_an_exclusive_empty_inline_list(self):
@@ -94,7 +99,22 @@ class LivePlaybackFallbackTests(unittest.TestCase):
             detail = build.write_channel_playback_resources(
                 Path(tmp), self.channel, [], {"streams": []},
             )
-            self.assertNotIn("streams", detail["videos"][0])
+            for video in detail["videos"]:
+                self.assertNotIn("streams", video)
+
+    def test_plain_channel_selection_has_no_season_or_episode_or_redirect(self):
+        detail = build.channel_meta(
+            self.channel, self.programmes, live_fallback=True,
+            live_streams=[{"url": "https://example.test/live.m3u8"}],
+        )
+        selected = next(v for v in detail["videos"] if v["id"] == detail["id"])
+        self.assertEqual(selected["title"], self.channel["name"])
+        self.assertTrue(selected["streams"])
+        self.assertTrue(selected["available"])
+        for field in ("season", "episode", "startTime", "endTime"):
+            self.assertNotIn(field, selected)
+        self.assertNotIn("defaultVideoId", detail["behaviorHints"])
+        self.assertEqual(len({v["id"] for v in detail["videos"]}), len(detail["videos"]))
 
     def test_native_guide_never_inlines_live_options_into_programmes(self):
         detail = build.channel_meta(
@@ -109,17 +129,17 @@ class LivePlaybackFallbackTests(unittest.TestCase):
         guide = build.channel_meta(self.channel, self.programmes)
         detail = build.channel_meta(self.channel, self.programmes, live_fallback=True)
         self.assertEqual(guide["videos"], self.programmes)
-        self.assertEqual(detail["videos"][1:], self.programmes)
+        self.assertEqual(detail["videos"][2:], self.programmes)
         self.assertTrue(guide["behaviorHints"]["hasScheduledVideos"])
         self.assertTrue(detail["behaviorHints"]["hasScheduledVideos"])
-        self.assertNotIn("available", detail["videos"][1])
+        self.assertNotIn("available", detail["videos"][2])
         self.assertEqual((self.channel, self.programmes), original)
 
     def test_channel_without_epg_still_has_live_playback(self):
         self.channel["epg_matched"] = False
         self.channel.pop("logo")
         detail = build.channel_meta(self.channel, [], live_fallback=True)
-        self.assertEqual(len(detail["videos"]), 1)
+        self.assertEqual(len(detail["videos"]), 2)
         self.assertNotIn("hasScheduledVideos", detail["behaviorHints"])
         self.assertNotIn("thumbnail", detail["videos"][0])
 

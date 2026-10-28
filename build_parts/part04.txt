@@ -5833,20 +5833,27 @@ def channel_meta(
     if live_fallback:
         # Older clients can render timed EPG entries as ordinary episodes and
         # never request the channel stream. Give detail views an explicit live
-        # video with a distinct episode ID and its own stream endpoint. Inline
-        # the already selected stream objects when provided so clients can use
-        # metadata without a second resource lookup. Keep this untimed entry
-        # out of date-filtered EPG catalogs and scheduled programme metadata.
-        meta["videos"] = [{
-            "id": live_video_id(channel),
-            "title": "Watch live",
-            "season": 0,
-            "episode": 0,
+        # video with a distinct episode ID and its own stream endpoint. Also
+        # match clients selecting the channel ID without episode coordinates.
+        # Both untimed entries inline the same selected options, outside the
+        # date-filtered EPG catalogs and scheduled programme metadata.
+        live_fields = {
             "released": "1970-01-01T00:00:00Z",
             "available": True,
             **({"streams": live_streams} if live_streams else {}),
             "overview": "Play this channel live now. Guide listings are not recordings or catch-up streams.",
             **({"thumbnail": channel["logo"]} if channel.get("logo") else {}),
+        }
+        meta["videos"] = [{
+            **live_fields,
+            "id": live_video_id(channel),
+            "title": "Watch live",
+            "season": 0,
+            "episode": 0,
+        }, {
+            **live_fields,
+            "id": channel["id"],
+            "title": channel["name"],
         }, *meta.get("videos", [])]
     if build_id:
         meta["stremioTvBuild"] = {

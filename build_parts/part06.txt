@@ -267,14 +267,9 @@
                         nearby.append(p)
             dedup = {p["id"]: p for p in nearby}
             nearby = sorted(dedup.values(), key=lambda p: p["startTime"])
-            meta = channel_meta(ch, nearby, live_fallback=True)
-            write_json(
-                output / "meta" / "tv" / f"{ch['id']}.json",
-                cached_resource({"meta": meta}),
-            )
             streams = [stream_object(s, i + 1, build_info) for i, s in enumerate(ch["streams"])]
-            write_channel_stream_resources(
-                output, ch,
+            meta = write_channel_playback_resources(
+                output, ch, nearby,
                 {
                     "streams": streams,
                     "stremioTvBuild": build_info,
@@ -291,17 +286,12 @@
 
         local_test_preview_rows: list[dict[str, Any]] = []
         for ch in local_test_channels:
-            meta = channel_meta(ch, [], live_fallback=True)
-            write_json(
-                output / "meta" / "tv" / f"{ch['id']}.json",
-                cached_resource({"meta": meta}),
-            )
             streams = [
                 stream_object(stream, index + 1, build_info)
                 for index, stream in enumerate(ch.get("streams") or [])
             ]
-            write_channel_stream_resources(
-                output, ch,
+            meta = write_channel_playback_resources(
+                output, ch, [],
                 {
                     "streams": streams,
                     "stremioTvBuild": build_info,

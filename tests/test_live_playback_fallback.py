@@ -64,6 +64,46 @@ class LivePlaybackFallbackTests(unittest.TestCase):
         for field in ("startTime", "endTime", "streams"):
             self.assertNotIn(field, live)
 
+    def test_published_metadata_and_routes_preserve_identical_selected_options(self):
+        payload = {
+            "streams": [{"url": "https://example.test/live.m3u8", "name": "Primary",
+                         "behaviorHints": {"notWebReady": True, "proxyHeaders": {
+                             "request": {"Referer": "https://example.test/player"}}},
+                         "stremioTvBuild": {"build_id": "test"}},
+                        {"url": "https://backup.test/live.m3u8", "name": "Backup 1"}],
+            "stremioTvBuild": {"build_id": "test"}, "cacheMaxAge": 60,
+        }
+        original = copy.deepcopy((self.channel, self.programmes, payload))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            build.write_channel_playback_resources(root, self.channel, self.programmes, payload)
+            detail = json.loads((root / "meta/tv/stremiotv_test.json").read_text())
+            live = detail["meta"]["videos"][0]
+            # A client that consumes inline streams needs no second HTTP lookup.
+            self.assertEqual(live["streams"], payload["streams"])
+            self.assertEqual(detail["meta"]["videos"][1:], self.programmes)
+            self.assertTrue(detail["meta"]["behaviorHints"]["hasScheduledVideos"])
+            for video_id in (self.channel["id"], live["id"]):
+                route = json.loads((root / "stream/tv" / f"{video_id}.json").read_text())
+                self.assertEqual(route, payload)
+                self.assertEqual(live["streams"], route["streams"])
+        self.assertEqual((self.channel, self.programmes, payload), original)
+
+    def test_empty_options_do_not_publish_an_exclusive_empty_inline_list(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            detail = build.write_channel_playback_resources(
+                Path(tmp), self.channel, [], {"streams": []},
+            )
+            self.assertNotIn("streams", detail["videos"][0])
+
+    def test_native_guide_never_inlines_live_options_into_programmes(self):
+        detail = build.channel_meta(
+            self.channel, self.programmes,
+            live_streams=[{"url": "https://example.test/live.m3u8"}],
+        )
+        self.assertEqual(detail["videos"], self.programmes)
+        self.assertTrue(all("streams" not in p for p in detail["videos"]))
+
     def test_native_guide_and_future_programmes_are_unchanged(self):
         original = copy.deepcopy((self.channel, self.programmes))
         guide = build.channel_meta(self.channel, self.programmes)

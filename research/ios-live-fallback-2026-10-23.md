@@ -21,7 +21,12 @@ We do not have a device request trace, so the exact client failure is unproven.
   the same resource writer. Timed guide programmes keep their original metadata.
 - Date-filtered EPG catalogs retain only their original timed programmes.
   Detail metadata retains the timed programmes and native scheduling hint.
-- No inline video streams, programme-ID aliases, catch-up claims, alternate
+- The untimed Watch live video also includes `streams` using the exact serialized
+  options served by both stream endpoints. This is the SDK's documented inline
+  video playback path, avoiding a second addon stream lookup for clients that
+  consume it. Only already selected production/local-test feed options are used;
+  headers, order, source labels and build identity remain identical.
+- No timed programme-ID aliases, catch-up claims, alternate
   addon, new upstream requests, or source-selection changes are introduced.
 
 This is a persistent compatibility path, not automatic detection of a failed
@@ -38,6 +43,17 @@ that same ID as `defaultVideoId`. This suggests navigation re-entry, but the
 screenshots do not establish the exact request sequence or prove the cause.
 The distinct episode ID and removal of the automatic redirect address that
 ambiguity. Actual device validation remains required after publication.
+
+The next device test reached stream selection but displayed "No addons were
+able to provide streams" on both FOX 29 and HGTV. Direct HTTP checks of native
+and episode endpoints returned 200 and nonempty streams (FOX 29: one; HGTV:
+three), including percent-encoded episode IDs. The production manifest supports
+type tv and the stremiotv_ ID prefix. These checks do not establish the phone's
+actual request path, cached addon manifest, or HTTP response. Inline Watch live
+streams are an additional compatibility attempt, not a confirmed root-cause fix.
+The SDK documents inline streams as exclusive for that video; our retained
+stream endpoints continue to support clients using resource lookup. Timed EPG
+programmes never receive inline live streams.
 
 ## Validation and limitations
 

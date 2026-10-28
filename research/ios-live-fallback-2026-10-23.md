@@ -26,6 +26,12 @@ We do not have a device request trace, so the exact client failure is unproven.
   video playback path, avoiding a second addon stream lookup for clients that
   consume it. Only already selected production/local-test feed options are used;
   headers, order, source labels and build identity remain identical.
+- A second untimed video uses the parent channel ID and channel name, with no
+  season or episode properties. Its inline options match the explicit 0:0 entry
+  and existing channel stream endpoint. This supports a plain channel selection
+  (e.g. HGTV with blank episode coordinates), because core's inline lookup
+  matches the selected stream ID to a video ID. `defaultVideoId` remains absent;
+  this does not reintroduce an automatic redirect into channel details.
 - No timed programme-ID aliases, catch-up claims, alternate
   addon, new upstream requests, or source-selection changes are introduced.
 

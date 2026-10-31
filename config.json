@@ -2,7 +2,7 @@
   "addon": {
     "id": "com.stremiotv.philly",
     "name": "Stremio TV",
-    "description": "Curated Philadelphia-area live TV with native EPG, decoded playback QA, exact stream identity guards, and prioritized recovery hunting.",
+    "description": "Live TV with a program guide: national channels plus Altoona, PA area locals.",
     "version": "0.7.0"
   },
   "sources": {
@@ -17,9 +17,9 @@
         "fixture": "us.m3u"
       },
       {
-        "name": "IPTV-org Philadelphia",
+        "name": "IPTV-org Johnstown",
         "family": "iptv-org",
-        "url": "https://iptv-org.github.io/iptv/cities/usphl.m3u",
+        "url": "https://iptv-org.github.io/iptv/cities/usjst.m3u",
         "philly": true,
         "priority": 0,
         "required": true,
@@ -279,22 +279,22 @@
     "epg": "https://vcicio.github.io/US-EPG/merged_epg.xml.gz"
   },
   "favorites": [
-    "WPVI",
-    "6ABC",
-    "NBC 10",
-    "KYW",
-    "CBS 3",
-    "WTXF",
-    "FOX 29",
-    "WPHL",
-    "WHYY",
+    "WJAC",
+    "NBC 6",
+    "WTAJ",
+    "CBS 10",
+    "WATM",
+    "ABC 23",
+    "WWCP",
+    "FOX 8",
+    "WPSU",
+    "CBS 21",
     "Fox News Channel",
     "CNN",
     "MS NOW",
     "ESPN",
     "ESPN2",
     "Fox Sports 1",
-    "NBC Sports Philadelphia",
     "HGTV",
     "Magnolia Network",
     "TNT",
@@ -303,12 +303,12 @@
   "catalogs": [
     {
       "id": "favorites",
-      "name": "\u2605 Favorites",
+      "name": "★ Favorites",
       "category": "Favorites"
     },
     {
       "id": "philly",
-      "name": "Philadelphia Locals",
+      "name": "Altoona Locals",
       "category": "Philadelphia Locals"
     },
     {
@@ -345,6 +345,16 @@
       "id": "movies",
       "name": "Movies",
       "category": "Movies"
+    },
+    {
+      "id": "more",
+      "name": "More Free Channels",
+      "category": "More Channels"
+    },
+    {
+      "id": "otherlocals",
+      "name": "Other Local Stations",
+      "category": "Other Local Stations"
     }
   ],
   "page_size": 100,
@@ -354,15 +364,22 @@
     "enabled": true,
     "description": "Expanded-basic style Philadelphia package. Only explicitly approved Philadelphia locals and major national cable networks are kept.",
     "philly_allow": [
-      "Telemundo.us@WCAU",
-      "Fox.us@WTXFTV",
-      "WPVI.us",
-      "WCAU.us",
-      "KYW.us",
-      "WTXF.us",
-      "WHYY.us",
-      "WPHL.us",
-      "WPSG.us"
+      "NBC.us@WJACTV",
+      "CBS.us@WTAJTV",
+      "ABC.us@WATMTV",
+      "Fox.us@WWCPTV",
+      "PBS.us@WPSUTV",
+      "TheCWPlus.us@WJACTV",
+      "MNT.us@WHVLLD",
+      "WJAC.us",
+      "WTAJ.us",
+      "WATM.us",
+      "WWCP.us",
+      "WPSU.us",
+      "WHPDT1.us",
+      "NBC.us@WPXI",
+      "NBC.us@WGAL",
+      "CBSNewsPittsburgh.us"
     ],
     "national_allow": [
       "FoxNewsChannel.us",
@@ -471,7 +488,229 @@
       "RFDTV.us",
       "NewsmaxTV.us",
       "OneAmericaNewsNetwork.us",
-      "HallmarkMoviesMore.us"
+      "HallmarkMoviesMore.us",
+      "3ABNKids.us@SD",
+      "3ABNLatino.us@SD",
+      "3ABNPraiseHimMusicNetwork.us@SD",
+      "3ABNProclaimNetwork.us@SD",
+      "ABCNewsLive.us",
+      "ACCDigitalNetwork.us@SD",
+      "AceTV.us@SD",
+      "AmericasTestKitchen.us@SD",
+      "AmericanHeroesChannel.us@SD",
+      "AMGTV.us@SD",
+      "AWEPlus.us@SD",
+      "AXSTV.us@SD",
+      "Binge.us@SD",
+      "BizTV.us@SD",
+      "Bounce.us@SD",
+      "BYUTV.us@SD",
+      "CarsTV.us@SD",
+      "CBSSportsGolazoNetwork.us@SD",
+      "CBSSportsHQ.us@SD",
+      "Charge.us@SD",
+      "Cheddar.us",
+      "ComedyTV.us@SD",
+      "Comet.us@SD",
+      "CourtTV.us@SD",
+      "Create.us@SD",
+      "DangerTV.us@SD",
+      "DestinationAmerica.us@SD",
+      "DiscoveryFamily.us@East",
+      "DiscoveryTurbo.us@SD",
+      "DraftKingsNetwork.us@SD",
+      "ElRey.us@SD",
+      "EstrellaNews.us@SD",
+      "EstrellaTV.us@SD",
+      "FoxDeportes.us@SD",
+      "FoxSoul.us@SD",
+      "FreeSpeechTV.us@SD",
+      "FunRoads.us@SD",
+      "Fuse.us@East",
+      "GreatEntertainmentTelevision.us@SD",
+      "HBCUGOSports.us@SD",
+      "HLN.us@SD",
+      "HSN2.us@SD",
+      "ImpactNetwork.us@SD",
+      "INSP.us@SD",
+      "JBS.us@SD",
+      "JusticeCentralTV.us@SD",
+      "KartoonChannel.us@SD",
+      "Laff.us@SD",
+      "Localish.us@SD",
+      "MagellanTVNow.us@SD",
+      "MBCAmerica.us@SD",
+      "MilitaryHistory.us@SD",
+      "MLB.us@SD",
+      "Movies.us@SD",
+      "MTVLive.us@SD",
+      "NBCComedyVault.us@SD",
+      "NBCSportsNOW.us@SD",
+      "Newsy.us@SD",
+      "NRBTV.us@SD",
+      "PetsTV.us@SD",
+      "PixLTV.us@SD",
+      "PositivTV.us@SD",
+      "PursuitChannel.us@SD",
+      "QVC.us@SD",
+      "QVC2.us@SD",
+      "QVC3.us@SD",
+      "RacerNetwork.us@SD",
+      "RealAmericasVoice.us@SD",
+      "RecipeTV.us@SD",
+      "RetroTVEast.us",
+      "RevnTV.us",
+      "Revolt.us@SD",
+      "RightNowTV.us@SD",
+      "Roar.us@SD",
+      "SalemNewsChannel.us@SD",
+      "ScrippsNews.us@SD",
+      "ShopLC.us@SD",
+      "ShowtimeFamilyZone.us@East",
+      "SportsGrid.us@SD",
+      "StoriesbyAMC.us@SD",
+      "SUMtvLatino.us@SD",
+      "TastemadeTravel.us@SD",
+      "TBNInspire.us@SD",
+      "TCT.us@SD",
+      "TheFilmDetective.us@SD",
+      "TheFirstTV.us@SD",
+      "TheNest.us@SD",
+      "TheWordNetwork.us@SD",
+      "TheGrioTV.us@SD",
+      "TUDN.us@SD",
+      "UniversalCrime.us@East",
+      "Univision.us@East",
+      "UnivisionTlnovelas.us@SD",
+      "Vevo70s.us@SD",
+      "Vevo80s.us@SD",
+      "Vevo90s.us@SD",
+      "Vevo2K.us@SD",
+      "VevoCountry.us@SD",
+      "VevoHipHop.us@SD",
+      "VevoLatino.us@SD",
+      "VevoPop.us@SD",
+      "VevoTrueSchoolHipHop.us@SD",
+      "WeatherNation.us@SD",
+      "WorldChannel.us@SD",
+      "WWENetwork.us@SD",
+      "XploreTV.us@SD",
+      "YesNetwork.us@SD",
+      "ABC.us@KAAL",
+      "ABC.us@KEROTV",
+      "ABC.us@KGTV",
+      "ABC.us@KGUNTV",
+      "ABC.us@KITV",
+      "ABC.us@KMGHTV",
+      "ABC.us@KOATTV",
+      "ABC.us@KRGVTV",
+      "ABC.us@KSTPTV",
+      "ABC.us@KXXV",
+      "ABC.us@WBBJTV",
+      "ABC.us@WBRZTV",
+      "ABC.us@WDIODT",
+      "ABC.us@WFTV",
+      "ABC.us@WISNTV",
+      "ABC.us@WJLATV",
+      "ABC.us@WLOS",
+      "ABC.us@WMARTV",
+      "ABC.us@WMURTV",
+      "ABC.us@WPDETV",
+      "ABC.us@WSOCTV",
+      "ABC.us@WSYX",
+      "ABC.us@WTNH",
+      "ABC.us@WTVQDT",
+      "ABC.us@WTXLTV",
+      "ABC.us@WWAY",
+      "ACECountryRadio.us@KPVMLD",
+      "AceTV.us@KCKSLD",
+      "AWEPlus.us@KPVMLD",
+      "CBS.us@KCCI",
+      "CBS.us@KIROTV",
+      "CBS.us@KUTV",
+      "CBS.us@KZTV",
+      "CBS.us@WCBITV",
+      "CBS.us@WDEFTV",
+      "CBS.us@WHIOTV",
+      "CBS.us@WJAXTV",
+      "CBS.us@WKRCTV",
+      "CBS.us@WPEC",
+      "CBS.us@WTVRTV",
+      "CBS.us@WWMT",
+      "Create.us@WMPT",
+      "Fox.us@KCPQ",
+      "Fox.us@KDFW",
+      "Fox.us@KMPHTV",
+      "Fox.us@KOKHTV",
+      "Fox.us@KRIV",
+      "Fox.us@KSAZTV",
+      "Fox.us@KTBC",
+      "Fox.us@KTTV",
+      "Fox.us@WBFF",
+      "Fox.us@WFTXTV",
+      "Fox.us@WHBQTV",
+      "Fox.us@WITI",
+      "Fox.us@WJBK",
+      "Fox.us@WNYW",
+      "Fox.us@WSVN",
+      "Fox.us@WTTG",
+      "Fox.us@WTVT",
+      "Fox.us@WTXFTV",
+      "Fox.us@WXXVTV",
+      "GEBNetwork.us@KBPXLD",
+      "GodsLearningChannel.us@KPCBDT",
+      "iHolyfieldTV.us@WHPSCD",
+      "KentuckyEducationalTelevision.us@WKMJTV",
+      "KentuckyEducationalTelevision.us@WKPCTV",
+      "MegaTV.us@WSBSTV",
+      "MNT.us@WCIV",
+      "MNT.us@WFLD",
+      "MNT.us@WOIO",
+      "Movies.us@KPVMLD",
+      "MovieSphereGold.us@WFXT",
+      "NBC.us@KNTV",
+      "NBC.us@KRISTV",
+      "NBC.us@KSBW",
+      "NBC.us@KSBY",
+      "NBC.us@KSHBTV",
+      "NBC.us@KSNV",
+      "NBC.us@KXASTV",
+      "NBC.us@WBALTV",
+      "NBC.us@WBTSCD",
+      "NBC.us@WGBATV",
+      "NBC.us@WHECTV",
+      "NBC.us@WJAR",
+      "NBC.us@WKYC",
+      "NBC.us@WMAQTV",
+      "NBC.us@WMGTTV",
+      "NBC.us@WNYT",
+      "NBC.us@WOAITV",
+      "NBC.us@WTLV",
+      "NBC.us@WTMJTV",
+      "NBC.us@WTOVTV",
+      "NBC.us@WTVJ",
+      "NBC.us@WVIT",
+      "OANPlus.us@KPVMLD",
+      "Outlaw.us@WGGSTV",
+      "PBS.us@KQED",
+      "PBS.us@KVIE",
+      "PBS.us@WJXT",
+      "RealAmericasVoice.us@KPVMLD",
+      "Roar.us@KOKITV",
+      "Roar.us@WKEF",
+      "Roar.us@WSBTTV",
+      "ScientologyNetwork.us@KSCNTV",
+      "ScientologyNetwork.us@WFTTTV",
+      "StoryTelevision.us@KPVMLD",
+      "StoryTelevision.us@WCIUTV",
+      "Telemundo.us@WCAU",
+      "Telemundo.us@WKAQTV",
+      "Telemundo.us@WTMOCD",
+      "TrueCrimeNetwork.us@WCVBTV",
+      "UniMas.us@KUVNDT",
+      "UniMas.us@WAMIDT",
+      "Univision.us@WGBODT",
+      "WorldChannel.us@WGTV"
     ],
     "approved_unverified_families": [
       "tvpass",
@@ -1130,12 +1369,22 @@
     "philly_local_sources": {
       "enabled": true,
       "target_ids": [
-        "WPVI.us",
-        "WCAU.us",
-        "KYW.us",
-        "WHYY.us",
-        "WPHL.us",
-        "WPSG.us"
+        "NBC.us@WJACTV",
+        "CBS.us@WTAJTV",
+        "ABC.us@WATMTV",
+        "Fox.us@WWCPTV",
+        "PBS.us@WPSUTV",
+        "TheCWPlus.us@WJACTV",
+        "MNT.us@WHVLLD",
+        "WJAC.us",
+        "WTAJ.us",
+        "WATM.us",
+        "WWCP.us",
+        "WPSU.us",
+        "WHPDT1.us",
+        "NBC.us@WPXI",
+        "NBC.us@WGAL",
+        "CBSNewsPittsburgh.us"
       ],
       "timeout_seconds": 20,
       "byte_limit": 8000000,
@@ -1162,81 +1411,7 @@
           "content_note": "Unverified full-linear affiliate mirror."
         }
       ],
-      "official_pages": [
-        {
-          "name": "6ABC Philadelphia 24/7",
-          "tvg_id": "WPVI.us",
-          "page_url": "https://6abc.com/watch/live/",
-          "source": "6ABC Official Public Stream",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official free 6ABC streaming channel; may be news/FAST rather than full WPVI-DT1 linear.",
-          "content_kind": "news-fast"
-        },
-        {
-          "name": "NBC10 Philadelphia News",
-          "tvg_id": "WCAU.us",
-          "page_url": "https://www.nbcphiladelphia.com/watch/",
-          "source": "NBC10 Official Public Stream",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official free NBC10 streaming channel; may differ from full WCAU-DT1 linear.",
-          "content_kind": "news-fast"
-        },
-        {
-          "name": "CBS News Philadelphia",
-          "tvg_id": "KYW.us",
-          "page_url": "https://www.cbsnews.com/philadelphia/live/",
-          "source": "CBS News Philadelphia Official",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official free CBS News Philadelphia stream; not necessarily full KYW/CBS3 linear.",
-          "content_kind": "news-fast"
-        },
-        {
-          "name": "WHYY",
-          "tvg_id": "WHYY.us",
-          "page_url": "https://video.whyy.org/livestream/",
-          "source": "WHYY / PBS Official Page",
-          "priority": -20,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official WHYY livestream; PBS service-area geo rules may prevent GitHub-runner validation.",
-          "content_kind": "full-linear"
-        },
-        {
-          "name": "PHL17+",
-          "tvg_id": "WPHL.us",
-          "page_url": "https://phl17.com/",
-          "source": "PHL17 Official Public Page",
-          "priority": -15,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "content_note": "Official PHL17 web/CTV lead; candidate accepted only if a public HLS is plainly exposed and passes both probes.",
-          "content_kind": "unknown"
-        },
-        {
-          "name": "Philly 57 / WPSG",
-          "tvg_id": "WPSG.us",
-          "page_url": "https://www.cbsnews.com/philadelphia/philly-57/",
-          "source": "Philly 57 Official Public Page",
-          "priority": -15,
-          "philly": true,
-          "group": "Local",
-          "max_candidates": 4,
-          "candidate_mode": "research-only",
-          "content_note": "Official Philly 57 page retained as a research lead. Its currently exposed HLS manifests are CBS News Philadelphia, not verified WPSG linear, so they are never emitted as WPSG candidates.",
-          "content_kind": "unknown"
-        }
-      ]
+      "official_pages": []
     },
     "targeted_source_families": {
       "enabled": true,
@@ -3612,6 +3787,1156 @@
     },
     "Fox.us@WTXFTV": {
       "logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Fts-philadelphia-a.svg/960px-Fts-philadelphia-a.svg.png"
+    },
+    "NBC.us@WJACTV": {
+      "name": "NBC 6 / WJAC",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WTAJTV": {
+      "name": "CBS 10 / WTAJ",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WATMTV": {
+      "name": "ABC 23 / WATM",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WWCPTV": {
+      "name": "FOX 8 / WWCP",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "PBS.us@WPSUTV": {
+      "name": "WPSU PBS",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "WHPDT1.us": {
+      "name": "CBS 21 / WHP (Harrisburg)",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "CBSNewsPittsburgh.us": {
+      "name": "CBS News Pittsburgh",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WPXI": {
+      "name": "NBC 11 / WPXI (Pittsburgh)",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WGAL": {
+      "name": "NBC 8 / WGAL (Lancaster)",
+      "category": "Other",
+      "service_type": "Local broadcast"
+    },
+    "3ABNKids.us@SD": {
+      "name": "3ABN Kids",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "3ABNLatino.us@SD": {
+      "name": "3ABN Latino",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "3ABNPraiseHimMusicNetwork.us@SD": {
+      "name": "3ABN Praise Him Music Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "3ABNProclaimNetwork.us@SD": {
+      "name": "3ABN Proclaim! Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ABCNewsLive.us": {
+      "name": "ABC News Live",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ACCDigitalNetwork.us@SD": {
+      "name": "ACC Digital Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "AceTV.us@SD": {
+      "name": "Ace TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "AmericasTestKitchen.us@SD": {
+      "name": "America's Test Kitchen",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "AmericanHeroesChannel.us@SD": {
+      "name": "American Heroes Channel",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "AMGTV.us@SD": {
+      "name": "AMG TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "AWEPlus.us@SD": {
+      "name": "AWE Plus",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "AXSTV.us@SD": {
+      "name": "AXS TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Binge.us@SD": {
+      "name": "Binge",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "BizTV.us@SD": {
+      "name": "Biz TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Bounce.us@SD": {
+      "name": "Bounce",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "BYUTV.us@SD": {
+      "name": "BYU TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "CarsTV.us@SD": {
+      "name": "Cars.TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "CBSSportsGolazoNetwork.us@SD": {
+      "name": "CBS Sports Golazo Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "CBSSportsHQ.us@SD": {
+      "name": "CBS Sports HQ",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Charge.us@SD": {
+      "name": "Charge!",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Cheddar.us": {
+      "name": "Cheddar",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ComedyTV.us@SD": {
+      "name": "Comedy TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Comet.us@SD": {
+      "name": "Comet",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "CourtTV.us@SD": {
+      "name": "Court TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Create.us@SD": {
+      "name": "Create",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "DangerTV.us@SD": {
+      "name": "Danger TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "DestinationAmerica.us@SD": {
+      "name": "Destination America",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "DiscoveryFamily.us@East": {
+      "name": "Discovery Family",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "DiscoveryTurbo.us@SD": {
+      "name": "Discovery Turbo",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "DraftKingsNetwork.us@SD": {
+      "name": "DraftKings Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ElRey.us@SD": {
+      "name": "El Rey",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "EstrellaNews.us@SD": {
+      "name": "Estrella News",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "EstrellaTV.us@SD": {
+      "name": "Estrella TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "FoxDeportes.us@SD": {
+      "name": "Fox Deportes",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "FoxSoul.us@SD": {
+      "name": "Fox Soul",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "FreeSpeechTV.us@SD": {
+      "name": "Free Speech TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "FunRoads.us@SD": {
+      "name": "Fun Roads",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Fuse.us@East": {
+      "name": "Fuse",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "GreatEntertainmentTelevision.us@SD": {
+      "name": "Great Entertainment Television",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "HBCUGOSports.us@SD": {
+      "name": "HBCU-GO Sports",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "HLN.us@SD": {
+      "name": "HLN",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "HSN2.us@SD": {
+      "name": "HSN2",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ImpactNetwork.us@SD": {
+      "name": "Impact Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "INSP.us@SD": {
+      "name": "INSP",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "JBS.us@SD": {
+      "name": "JBS",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "JusticeCentralTV.us@SD": {
+      "name": "Justice Central TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "KartoonChannel.us@SD": {
+      "name": "Kartoon Channel!",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Laff.us@SD": {
+      "name": "Laff",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Localish.us@SD": {
+      "name": "Localish",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "MagellanTVNow.us@SD": {
+      "name": "MagellanTV Now",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "MBCAmerica.us@SD": {
+      "name": "MBC America",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "MilitaryHistory.us@SD": {
+      "name": "Military History",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "MLB.us@SD": {
+      "name": "MLB",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Movies.us@SD": {
+      "name": "Movies!",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "MTVLive.us@SD": {
+      "name": "MTV Live",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "NBCComedyVault.us@SD": {
+      "name": "NBC Comedy Vault",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "NBCSportsNOW.us@SD": {
+      "name": "NBC Sports NOW",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Newsy.us@SD": {
+      "name": "Newsy",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "NRBTV.us@SD": {
+      "name": "NRBTV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "PetsTV.us@SD": {
+      "name": "Pets.TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "PixLTV.us@SD": {
+      "name": "PixL TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "PositivTV.us@SD": {
+      "name": "Positiv TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "PursuitChannel.us@SD": {
+      "name": "Pursuit Channel",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "QVC.us@SD": {
+      "name": "QVC",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "QVC2.us@SD": {
+      "name": "QVC2",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "QVC3.us@SD": {
+      "name": "QVC3",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "RacerNetwork.us@SD": {
+      "name": "Racer Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "RealAmericasVoice.us@SD": {
+      "name": "Real America's Voice",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "RecipeTV.us@SD": {
+      "name": "Recipe TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "RetroTVEast.us": {
+      "name": "Retro TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "RevnTV.us": {
+      "name": "Rev'n",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Revolt.us@SD": {
+      "name": "Revolt",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "RightNowTV.us@SD": {
+      "name": "Right Now TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Roar.us@SD": {
+      "name": "Roar",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "SalemNewsChannel.us@SD": {
+      "name": "Salem News Channel",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ScrippsNews.us@SD": {
+      "name": "Scripps News",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ShopLC.us@SD": {
+      "name": "Shop LC",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ShowtimeFamilyZone.us@East": {
+      "name": "Showtime Family Zone",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "SportsGrid.us@SD": {
+      "name": "SportsGrid",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "StoriesbyAMC.us@SD": {
+      "name": "Stories by AMC",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "SUMtvLatino.us@SD": {
+      "name": "SUMtv Latino",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TastemadeTravel.us@SD": {
+      "name": "Tastemade Travel",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TBNInspire.us@SD": {
+      "name": "TBN Inspire",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TCT.us@SD": {
+      "name": "TCT",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TheFilmDetective.us@SD": {
+      "name": "The Film Detective",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TheFirstTV.us@SD": {
+      "name": "The First TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TheNest.us@SD": {
+      "name": "The Nest",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TheWordNetwork.us@SD": {
+      "name": "The Word Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TheGrioTV.us@SD": {
+      "name": "TheGrio TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "TUDN.us@SD": {
+      "name": "TUDN",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "UniversalCrime.us@East": {
+      "name": "Universal Crime",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Univision.us@East": {
+      "name": "Univision",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "UnivisionTlnovelas.us@SD": {
+      "name": "Univision Tlnovelas",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Vevo70s.us@SD": {
+      "name": "Vevo '70s",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Vevo80s.us@SD": {
+      "name": "Vevo '80s",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Vevo90s.us@SD": {
+      "name": "Vevo '90s",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "Vevo2K.us@SD": {
+      "name": "Vevo 2K",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "VevoCountry.us@SD": {
+      "name": "Vevo Country",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "VevoHipHop.us@SD": {
+      "name": "Vevo Hip Hop",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "VevoLatino.us@SD": {
+      "name": "Vevo Latino",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "VevoPop.us@SD": {
+      "name": "Vevo Pop",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "VevoTrueSchoolHipHop.us@SD": {
+      "name": "Vevo True School Hip-Hop",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "WeatherNation.us@SD": {
+      "name": "WeatherNation",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "WorldChannel.us@SD": {
+      "name": "World Channel",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "WWENetwork.us@SD": {
+      "name": "WWE Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "XploreTV.us@SD": {
+      "name": "Xplore TV",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "YesNetwork.us@SD": {
+      "name": "Yes Network",
+      "category": "More Channels",
+      "service_type": "Free channel"
+    },
+    "ABC.us@KAAL": {
+      "name": "ABC KAAL",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KEROTV": {
+      "name": "ABC KERO-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KGTV": {
+      "name": "ABC KGTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KGUNTV": {
+      "name": "ABC KGUN-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KITV": {
+      "name": "ABC KITV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KMGHTV": {
+      "name": "ABC KMGH-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KOATTV": {
+      "name": "ABC KOAT-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KRGVTV": {
+      "name": "ABC KRGV-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KSTPTV": {
+      "name": "ABC KSTP-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@KXXV": {
+      "name": "ABC KXXV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WBBJTV": {
+      "name": "ABC WBBJ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WBRZTV": {
+      "name": "ABC WBRZ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WDIODT": {
+      "name": "ABC WDIO-DT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WFTV": {
+      "name": "ABC WFTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WISNTV": {
+      "name": "ABC WISN-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WJLATV": {
+      "name": "ABC WJLA-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WLOS": {
+      "name": "ABC WLOS",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WMARTV": {
+      "name": "ABC WMAR-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WMURTV": {
+      "name": "ABC WMUR-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WPDETV": {
+      "name": "ABC WPDE-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WSOCTV": {
+      "name": "ABC WSOC-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WSYX": {
+      "name": "ABC WSYX",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WTNH": {
+      "name": "ABC WTNH",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WTVQDT": {
+      "name": "ABC WTVQ-DT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WTXLTV": {
+      "name": "ABC WTXL-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ABC.us@WWAY": {
+      "name": "ABC WWAY",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ACECountryRadio.us@KPVMLD": {
+      "name": "ACE Country Radio KPVM-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "AceTV.us@KCKSLD": {
+      "name": "Ace TV KCKS-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "AWEPlus.us@KPVMLD": {
+      "name": "AWE Plus KPVM-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@KCCI": {
+      "name": "CBS KCCI",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@KIROTV": {
+      "name": "CBS KIRO-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@KUTV": {
+      "name": "CBS KUTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@KZTV": {
+      "name": "CBS KZTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WCBITV": {
+      "name": "CBS WCBI-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WDEFTV": {
+      "name": "CBS WDEF-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WHIOTV": {
+      "name": "CBS WHIO-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WJAXTV": {
+      "name": "CBS WJAX-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WKRCTV": {
+      "name": "CBS WKRC-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WPEC": {
+      "name": "CBS WPEC",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WTVRTV": {
+      "name": "CBS WTVR-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "CBS.us@WWMT": {
+      "name": "CBS WWMT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Create.us@WMPT": {
+      "name": "Create WMPT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KCPQ": {
+      "name": "Fox KCPQ",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KDFW": {
+      "name": "Fox KDFW",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KMPHTV": {
+      "name": "Fox KMPH-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KOKHTV": {
+      "name": "Fox KOKH-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KRIV": {
+      "name": "Fox KRIV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KSAZTV": {
+      "name": "Fox KSAZ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KTBC": {
+      "name": "Fox KTBC",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@KTTV": {
+      "name": "Fox KTTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WBFF": {
+      "name": "Fox WBFF",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WFTXTV": {
+      "name": "Fox WFTX-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WHBQTV": {
+      "name": "Fox WHBQ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WITI": {
+      "name": "Fox WITI",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WJBK": {
+      "name": "Fox WJBK",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WNYW": {
+      "name": "Fox WNYW",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WSVN": {
+      "name": "Fox WSVN",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WTTG": {
+      "name": "Fox WTTG",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WTVT": {
+      "name": "Fox WTVT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Fox.us@WXXVTV": {
+      "name": "Fox WXXV-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "GEBNetwork.us@KBPXLD": {
+      "name": "GEB Network KBPX-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "GodsLearningChannel.us@KPCBDT": {
+      "name": "God's Learning Channel KPCB-DT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "iHolyfieldTV.us@WHPSCD": {
+      "name": "iHolyfield TV WHPS-CD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "KentuckyEducationalTelevision.us@WKMJTV": {
+      "name": "Kentucky Educational Television WKMJ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "KentuckyEducationalTelevision.us@WKPCTV": {
+      "name": "Kentucky Educational Television WKPC-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "MegaTV.us@WSBSTV": {
+      "name": "Mega TV WSBS-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "MNT.us@WCIV": {
+      "name": "MNT WCIV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "MNT.us@WFLD": {
+      "name": "MNT WFLD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "MNT.us@WOIO": {
+      "name": "MNT WOIO",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Movies.us@KPVMLD": {
+      "name": "Movies! KPVM-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "MovieSphereGold.us@WFXT": {
+      "name": "MovieSphere Gold WFXT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KNTV": {
+      "name": "NBC KNTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KRISTV": {
+      "name": "NBC KRIS-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KSBW": {
+      "name": "NBC KSBW",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KSBY": {
+      "name": "NBC KSBY",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KSHBTV": {
+      "name": "NBC KSHB-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KSNV": {
+      "name": "NBC KSNV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@KXASTV": {
+      "name": "NBC KXAS-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WBALTV": {
+      "name": "NBC WBAL-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WBTSCD": {
+      "name": "NBC WBTS-CD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WGBATV": {
+      "name": "NBC WGBA-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WHECTV": {
+      "name": "NBC WHEC-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WJAR": {
+      "name": "NBC WJAR",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WKYC": {
+      "name": "NBC WKYC",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WMAQTV": {
+      "name": "NBC WMAQ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WMGTTV": {
+      "name": "NBC WMGT-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WNYT": {
+      "name": "NBC WNYT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WOAITV": {
+      "name": "NBC WOAI-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WTLV": {
+      "name": "NBC WTLV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WTMJTV": {
+      "name": "NBC WTMJ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WTOVTV": {
+      "name": "NBC WTOV-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WTVJ": {
+      "name": "NBC WTVJ",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "NBC.us@WVIT": {
+      "name": "NBC WVIT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "OANPlus.us@KPVMLD": {
+      "name": "OAN Plus KPVM-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Outlaw.us@WGGSTV": {
+      "name": "Outlaw WGGS-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "PBS.us@KQED": {
+      "name": "PBS KQED",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "PBS.us@KVIE": {
+      "name": "PBS KVIE",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "PBS.us@WJXT": {
+      "name": "PBS WJXT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "RealAmericasVoice.us@KPVMLD": {
+      "name": "Real America's Voice KPVM-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Roar.us@KOKITV": {
+      "name": "Roar KOKI-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Roar.us@WKEF": {
+      "name": "Roar WKEF",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Roar.us@WSBTTV": {
+      "name": "Roar WSBT-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ScientologyNetwork.us@KSCNTV": {
+      "name": "Scientology Network KSCN-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "ScientologyNetwork.us@WFTTTV": {
+      "name": "Scientology Network WFTT-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "StoryTelevision.us@KPVMLD": {
+      "name": "Story Television KPVM-LD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "StoryTelevision.us@WCIUTV": {
+      "name": "Story Television WCIU-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Telemundo.us@WCAU": {
+      "name": "Telemundo WCAU",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Telemundo.us@WKAQTV": {
+      "name": "Telemundo WKAQ-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Telemundo.us@WTMOCD": {
+      "name": "Telemundo WTMO-CD",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "TrueCrimeNetwork.us@WCVBTV": {
+      "name": "True Crime Network WCVB-TV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "UniMas.us@KUVNDT": {
+      "name": "UniMas KUVN-DT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "UniMas.us@WAMIDT": {
+      "name": "UniMas WAMI-DT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "Univision.us@WGBODT": {
+      "name": "Univision WGBO-DT",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
+    },
+    "WorldChannel.us@WGTV": {
+      "name": "World Channel WGTV",
+      "category": "Other Local Stations",
+      "service_type": "Local broadcast"
     }
   },
   "safety_controls": {
@@ -3676,7 +5001,7 @@
   "local_test_catalog": {
     "enabled": true,
     "id": "local-test",
-    "name": "\ud83e\uddea Local Test \u2014 Missing Channel Recovery",
+    "name": "🧪 Local Test — Missing Channel Recovery",
     "max_streams_per_channel": 3,
     "target_ids": [
       "BET.us",
